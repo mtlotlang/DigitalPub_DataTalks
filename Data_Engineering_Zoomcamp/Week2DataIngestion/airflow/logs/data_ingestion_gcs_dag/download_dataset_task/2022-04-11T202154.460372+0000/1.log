@@ -1,0 +1,63 @@
+[2022-04-11 20:21:56,374] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_dataset_task manual__2022-04-11T20:21:54.460372+00:00 [queued]>
+[2022-04-11 20:21:56,385] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_dataset_task manual__2022-04-11T20:21:54.460372+00:00 [queued]>
+[2022-04-11 20:21:56,386] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-11 20:21:56,387] {taskinstance.py:1239} INFO - Starting attempt 1 of 2
+[2022-04-11 20:21:56,387] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-11 20:21:56,402] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_dataset_task> on 2022-04-11 20:21:54.460372+00:00
+[2022-04-11 20:21:56,419] {standard_task_runner.py:52} INFO - Started process 267 to run task
+[2022-04-11 20:21:56,424] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'download_dataset_task', 'manual__2022-04-11T20:21:54.460372+00:00', '--job-id', '51', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmp2g9ire5g', '--error-file', '/tmp/tmp0h3sjvq3']
+[2022-04-11 20:21:56,425] {standard_task_runner.py:77} INFO - Job 51: Subtask download_dataset_task
+[2022-04-11 20:21:56,498] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_gcs_dag.download_dataset_task manual__2022-04-11T20:21:54.460372+00:00 [running]> on host 61a38d1cffc8
+[2022-04-11 20:21:56,594] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-04-11T20:21:54.460372+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-04-11T20:21:54.460372+00:00
+[2022-04-11 20:21:56,597] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-04-11 20:21:56,598] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv > /opt/***/yellow_tripdata_2021-01.csv']
+[2022-04-11 20:21:56,619] {subprocess.py:85} INFO - Output:
+[2022-04-11 20:22:48,242] {subprocess.py:89} INFO - curl: (18) transfer closed with 125129758 bytes remaining to read
+[2022-04-11 20:22:48,244] {subprocess.py:93} INFO - Command exited with return code 18
+[2022-04-11 20:22:48,261] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 18.
+[2022-04-11 20:22:48,274] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=data_ingestion_gcs_dag, task_id=download_dataset_task, execution_date=20220411T202154, start_date=20220411T202156, end_date=20220411T202248
+[2022-04-11 20:22:48,295] {standard_task_runner.py:92} ERROR - Failed to execute job 51 for task download_dataset_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 188, in execute
+    f'Bash command failed. The command returned a non-zero exit code {result.exit_code}.'
+airflow.exceptions.AirflowException: Bash command failed. The command returned a non-zero exit code 18.
+[2022-04-11 20:22:48,320] {local_task_job.py:154} INFO - Task exited with return code 1
+[2022-04-11 20:22:48,358] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
