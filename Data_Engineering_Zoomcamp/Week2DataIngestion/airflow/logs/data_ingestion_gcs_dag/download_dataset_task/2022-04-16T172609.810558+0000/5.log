@@ -1,0 +1,75 @@
+[2022-04-16 17:54:57,813] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_dataset_task manual__2022-04-16T17:26:09.810558+00:00 [queued]>
+[2022-04-16 17:54:57,826] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: data_ingestion_gcs_dag.download_dataset_task manual__2022-04-16T17:26:09.810558+00:00 [queued]>
+[2022-04-16 17:54:57,826] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-16 17:54:57,827] {taskinstance.py:1239} INFO - Starting attempt 5 of 4
+[2022-04-16 17:54:57,827] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-16 17:54:57,844] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): download_dataset_task> on 2022-04-16 17:26:09.810558+00:00
+[2022-04-16 17:54:57,850] {standard_task_runner.py:52} INFO - Started process 77 to run task
+[2022-04-16 17:54:57,854] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'data_ingestion_gcs_dag', 'download_dataset_task', 'manual__2022-04-16T17:26:09.810558+00:00', '--job-id', '2145', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_gcs_dag.py', '--cfg-path', '/tmp/tmp1rtv3itt', '--error-file', '/tmp/tmpeccpt2xn']
+[2022-04-16 17:54:57,855] {standard_task_runner.py:77} INFO - Job 2145: Subtask download_dataset_task
+[2022-04-16 17:54:57,920] {logging_mixin.py:109} INFO - Running <TaskInstance: data_ingestion_gcs_dag.download_dataset_task manual__2022-04-16T17:26:09.810558+00:00 [running]> on host 97a395287b64
+[2022-04-16 17:54:57,996] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=data_ingestion_gcs_dag
+AIRFLOW_CTX_TASK_ID=download_dataset_task
+AIRFLOW_CTX_EXECUTION_DATE=2022-04-16T17:26:09.810558+00:00
+AIRFLOW_CTX_DAG_RUN_ID=manual__2022-04-16T17:26:09.810558+00:00
+[2022-04-16 17:54:57,998] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-04-16 17:54:58,000] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'curl -sSL https://s3.amazonaws.com/nyc-tlc/trip+data/yellow_tripdata_2021-01.csv > /opt/***/yellow_tripdata_2021-01.csv']
+[2022-04-16 17:54:58,015] {subprocess.py:85} INFO - Output:
+[2022-04-16 17:56:24,382] {local_task_job.py:212} WARNING - State of this instance has been externally set to restarting. Terminating instance.
+[2022-04-16 17:56:24,387] {process_utils.py:124} INFO - Sending Signals.SIGTERM to group 77. PIDs of all processes in the group: [78, 79, 77]
+[2022-04-16 17:56:24,388] {process_utils.py:75} INFO - Sending the signal Signals.SIGTERM to group 77
+[2022-04-16 17:56:24,389] {taskinstance.py:1408} ERROR - Received SIGTERM. Terminating subprocesses.
+[2022-04-16 17:56:24,390] {subprocess.py:99} INFO - Sending SIGTERM signal to process group
+[2022-04-16 17:56:24,421] {taskinstance.py:1700} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 182, in execute
+    cwd=self.cwd,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/subprocess.py", line 87, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b''):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1410, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-04-16 17:56:24,449] {taskinstance.py:1277} INFO - Marking task as UP_FOR_RETRY. dag_id=data_ingestion_gcs_dag, task_id=download_dataset_task, execution_date=20220416T172609, start_date=20220416T175457, end_date=20220416T175624
+[2022-04-16 17:56:24,487] {standard_task_runner.py:92} ERROR - Failed to execute job 2145 for task download_dataset_task
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/task/task_runner/standard_task_runner.py", line 85, in _start_by_fork
+    args.func(args, dag=self.dag)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/cli_parser.py", line 48, in command
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/cli.py", line 92, in wrapper
+    return f(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 298, in task_run
+    _run_task_by_selected_method(args, dag, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 107, in _run_task_by_selected_method
+    _run_raw_task(args, ti)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/cli/commands/task_command.py", line 184, in _run_raw_task
+    error_file=args.error_file,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/utils/session.py", line 70, in wrapper
+    return func(*args, session=session, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1329, in _run_raw_task
+    self._execute_task_with_callbacks(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1455, in _execute_task_with_callbacks
+    result = self._execute_task(context, self.task)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1511, in _execute_task
+    result = execute_callable(context=context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/bash.py", line 182, in execute
+    cwd=self.cwd,
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/hooks/subprocess.py", line 87, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b''):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/models/taskinstance.py", line 1410, in signal_handler
+    raise AirflowException("Task received SIGTERM signal")
+airflow.exceptions.AirflowException: Task received SIGTERM signal
+[2022-04-16 17:56:24,563] {process_utils.py:70} INFO - Process psutil.Process(pid=78, status='terminated', started='17:54:57') (78) terminated with exit code None
+[2022-04-16 17:56:24,564] {process_utils.py:70} INFO - Process psutil.Process(pid=77, status='terminated', exitcode=1, started='17:54:56') (77) terminated with exit code 1
+[2022-04-16 17:56:24,565] {process_utils.py:70} INFO - Process psutil.Process(pid=79, status='terminated', started='17:54:57') (79) terminated with exit code None
