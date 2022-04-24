@@ -46,7 +46,7 @@ ENV PYTHONIOENCODING=utf-8
 ENV LANG=C.UTF-8
 
 # Update python
-RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir
+RUN python -m pip install --upgrade pip setuptools wheel --no-cache-dir 
 
 # Set docker basics
 WORKDIR /usr/app/dbt/
