@@ -8,16 +8,16 @@ Project for Data Engineering Zoomcamp by DPHI
 
 Dataset fields;
 
-tripid
-VendorID 
-pickup_datetime 
-dropoff_datetime 
-Passenger_count 
-Trip_distance 
-Pickup_locationid
-dropoff_locationid 
-RateCodeID 
-Store_and_fwd_flag      
+tripid  
+VendorID    
+pickup_datetime    
+dropoff_datetime    
+Passenger_count    
+Trip_distance    
+Pickup_locationid   
+dropoff_locationid    
+RateCodeID     
+Store_and_fwd_flag        
 Dropoff_longitude   
 Dropoff_latitude   
 Payment_type         
