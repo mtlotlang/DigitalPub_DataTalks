@@ -54,7 +54,7 @@ Steps -  download_dataset_task >> format_to_parquet_task (Change format from CSV
 
 # Dashboard
 
-Create dashboard with Tiles from taxi trip dataset year 2021
+Create dashboard with Data Studio & Metabase Tiles for taxi trip dataset year 2021
 - Summaryof total trips (scorecard)
 - Distribution by servicetype- amount of trips per day and service type (Linear time series & Pie)
 - Monthly and Year summary trip (Bar)
