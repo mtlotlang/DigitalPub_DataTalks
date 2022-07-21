@@ -1,0 +1,2157 @@
+January    | February | March
+.........   | .......  | ........
+
+ 6 2 * * second day of the month
+ @monthly 	Run once a month at midnight of the first day of the month 	0 0 1 * *
+ 
+ wget O or curl > | head -n 10
+                   > output
+				   L flage  like statment
+				   
+				   60 files for each month can have a separate table
+				   
+ IDEMPOTENCY (Ingest (2021, January ->data
+  IDEMPOTENCY (Ingest (2021, January ->data
+   IDEMPOTENCY (Ingest (2021, January ->data
+ 
+ 
+				   dempotency is a Web API design principle defined as the ability to apply the same operation multiple times without changing the result beyond the first try. The Stripe API guarantees the idempotency of GET and DELETE requests, so it's always safe to retry them.
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ cd c:git/Data-Engineering/DigitalPub/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ ls
+Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd Data_Engineering_Zoomcamp/Week2DataIngest/airflow
+bash: cd: Data_Engineering_Zoomcamp/Week2DataIngest/airflow: No such file or directory
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd Data_Engineering_Zoomcamp/Week2DataIngestion/airflow
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ ls
+1_setup_official.md  dags_local/          docker-compose-nofrills.yml  extras/   README.md
+2_setup_nofrills.md  dags_new/            Dockerfile                   logs/     requirements.txt
+dags/                docker-compose.yaml  docs/                        plugins/  scripts/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                    PORTS                    NAMES
+d198be5adf63   airflow_airflow-webserver   "/usr/bin/dumb-init …"   49 minutes ago   Up 47 minutes (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+13db72185839   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   49 minutes ago   Up 47 minutes (healthy)   8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   7 hours ago      Up 47 minutes (healthy)   6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   7 hours ago      Up 47 minutes (healthy)   5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ more output.csv
+VendorID,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,RatecodeID,store_and_fwd_flag,PULocati
+onID,DOLocationID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,cong
+estion_surcharge
+1,2021-01-01 00:30:10,2021-01-01 00:36:12,1,2.10,1,N,142,43,2,8,3,0.5,0,0,0.3,11.8,2.5
+1,2021-01-01 00:51:20,2021-01-01 00:52:19,1,.20,1,N,238,151,2,3,0.5,0.5,0,0,0.3,4.3,0
+1,2021-01-01 00:43:30,2021-01-01 01:11:06,1,14.70,1,N,132,165,1,42,0.5,0.5,8.65,0,0.3,51.95,0
+1,2021-01-01 00:15:48,2021-01-01 00:31:01,0,10.60,1,N,138,132,1,29,0.5,0.5,6.05,0,0.3,36.35,0
+2,2021-01-01 00:31:49,2021-01-01 00:48:21,1,4.94,1,N,68,33,1,16.5,0.5,0.5,4.06,0,0.3,24.36,2.5
+1,2021-01-01 00:16:29,2021-01-01 00:24:30,1,1.60,1,N,224,68,1,8,3,0.5,2.35,0,0.3,14.15,2.5
+1,2021-01-01 00:00:28,2021-01-01 00:17:28,1,4.10,1,N,95,157,2,16,0.5,0.5,0,0,0.3,17.3,0
+1,2021-01-01 00:12:29,2021-01-01 00:30:34,1,5.70,1,N,90,40,2,18,3,0.5,0,0,0.3,21.8,2.5
+1,2021-01-01 00:39:16,2021-01-01 01:00:13,1,9.10,1,N,97,129,4,27.5,0.5,0.5,0,0,0.3,28.8,0
+1,2021-01-01 00:26:12,2021-01-01 00:39:46,2,2.70,1,N,263,142,1,12,3,0.5,3.15,0,0.3,18.95,2.5
+2,2021-01-01 00:15:52,2021-01-01 00:38:07,3,6.11,1,N,164,255,1,20.5,0.5,0.5,0,0,0.3,24.3,2.5
+2,2021-01-01 00:46:36,2021-01-01 00:53:45,2,1.21,1,N,255,80,1,7,0.5,0.5,2.49,0,0.3,10.79,0
+1,2021-01-01 00:10:46,2021-01-01 00:32:58,2,7.40,1,N,138,166,2,24.5,2.5,0.5,0,6.12,0.3,33.92,0
+2,2021-01-01 00:31:06,2021-01-01 00:38:52,5,1.70,1,N,142,50,1,8,0.5,0.5,2.36,0,0.3,14.16,2.5
+2,2021-01-01 00:42:11,2021-01-01 00:44:24,5,.81,1,N,50,142,2,4.5,0.5,0.5,0,0,0.3,8.3,2.5
+2,2021-01-01 00:17:48,2021-01-01 00:21:55,1,1.01,1,N,236,237,1,5.5,0.5,0.5,1,0,0.3,10.3,2.5
+2,2021-01-01 00:33:38,2021-01-01 00:38:37,1,.73,1,N,142,239,1,5.5,0.5,0.5,2.79,0,0.3,12.09,2.5
+2,2021-01-01 00:47:56,2021-01-01 00:52:53,1,1.17,1,N,238,166,1,6.5,0.5,0.5,2.06,0,0.3,12.36,2.5
+2,2021-01-01 00:04:21,2021-01-01 00:07:58,1,.78,1,N,239,238,1,4.5,0.5,0.5,1.66,0,0.3,9.96,2.5
+2,2021-01-01 00:18:36,2021-01-01 00:27:10,2,1.66,1,N,151,142,2,8.5,0.5,0.5,0,0,0.3,12.3,2.5
+2,2021-01-01 00:43:41,2021-01-01 00:48:17,3,.93,1,N,239,142,2,5.5,0.5,0.5,0,0,0.3,9.3,2.5
+2,2021-01-01 00:56:30,2021-01-01 01:02:03,2,1.16,1,N,238,142,1,6.5,0.5,0.5,1.54,0,0.3,11.84,2.5
+1,2021-01-01 00:16:27,2021-01-01 00:25:36,0,2.20,1,N,249,137,3,9,3,0.5,0,0,0.3,12.8,2.5
+1,2021-01-01 00:37:59,2021-01-01 01:01:37,0,3.60,1,N,107,163,1,17,3,0.5,10,0,0.3,30.8,2.5
+1,2021-01-01 00:37:40,2021-01-01 01:04:46,2,19.10,1,N,132,3,2,52,0.5,0.5,0,6.12,0.3,59.42,0
+1,2021-01-01 00:54:24,2021-01-01 01:16:33,1,5.40,1,N,48,226,2,20,3,0.5,0,0,0.3,23.8,2.5
+2,2021-01-01 00:34:37,2021-01-01 00:47:22,4,3.15,1,N,238,162,1,12.5,0.5,0.5,2,0,0.3,18.3,2.5
+default@13db72185839:/opt/airflow$ wc -l output.csv
+1061120 output.csv
+default@13db72185839:/opt/airflow$ ls -lh
+total 98M
+-rw-rw-r-- 1 default root  43K Apr 13 20:58 airflow.cfg
+drwxrwxrwx 1 root    root  512 Apr 13 20:58 dags
+drwxrwxrwx 1 default root  512 Apr 13 21:15 logs
+-rw-rw-r-- 1 default root  98M Apr 13 21:51 output.csv
+drwxrwxrwx 1 default root  512 Apr 10 17:50 plugins
+-rwxr-xr-x 1 root    root   40 Apr  2 19:23 requirements.txt
+drwxr-xr-x 1 root    root 4.0K Apr 13 20:56 scripts
+-rw-rw-r-- 1 default root 4.6K Apr 13 20:58 webserver_config.py
+default@13db72185839:/opt/airflow$
+
+Task Instance: ingest at 2021-10-02, 06:00:56
+
+    details Task Instance Details
+    code Rendered Template
+    reorder Log
+    sync_alt XCom
+
+
+Log by attempts
+
+    1
+
+*** Reading local file: /opt/airflow/logs/LocalIngestionDAG/ingest/2021-10-02T06:00:56+00:00/1.log
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: LocalIngestionDAG.ingest scheduled__2021-10-02T06:00:56+00:00 [queued]>
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1032} INFO - Dependencies all met for <TaskInstance: LocalIngestionDAG.ingest scheduled__2021-10-02T06:00:56+00:00 [queued]>
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1238} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1239} INFO - Starting attempt 1 of 1
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1240} INFO - 
+--------------------------------------------------------------------------------
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1259} INFO - Executing <Task(BashOperator): ingest> on 2021-10-02 06:00:56+00:00
+[2022-04-13, 21:54:08 UTC] {standard_task_runner.py:52} INFO - Started process 6792 to run task
+[2022-04-13, 21:54:08 UTC] {standard_task_runner.py:76} INFO - Running: ['***', 'tasks', 'run', 'LocalIngestionDAG', 'ingest', 'scheduled__2021-10-02T06:00:56+00:00', '--job-id', '1328', '--raw', '--subdir', 'DAGS_FOLDER/data_ingestion_local.py', '--cfg-path', '/tmp/tmpucmsag0o', '--error-file', '/tmp/tmprwzu39vu']
+[2022-04-13, 21:54:08 UTC] {standard_task_runner.py:77} INFO - Job 1328: Subtask ingest
+[2022-04-13, 21:54:08 UTC] {logging_mixin.py:109} INFO - Running <TaskInstance: LocalIngestionDAG.ingest scheduled__2021-10-02T06:00:56+00:00 [running]> on host 13db72185839
+[2022-04-13, 21:54:08 UTC] {taskinstance.py:1426} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=LocalIngestionDAG
+AIRFLOW_CTX_TASK_ID=ingest
+AIRFLOW_CTX_EXECUTION_DATE=2021-10-02T06:00:56+00:00
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2021-10-02T06:00:56+00:00
+[2022-04-13, 21:54:08 UTC] {subprocess.py:62} INFO - Tmp dir root location: 
+ /tmp
+[2022-04-13, 21:54:08 UTC] {subprocess.py:74} INFO - Running command: ['bash', '-c', 'ls /opt/***']
+[2022-04-13, 21:54:08 UTC] {subprocess.py:85} INFO - Output:
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - ***.cfg
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - dags
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - logs
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - output.csv
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - plugins
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - requirements.txt
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - scripts
+[2022-04-13, 21:54:08 UTC] {subprocess.py:89} INFO - webserver_config.py
+[2022-04-13, 21:54:08 UTC] {subprocess.py:93} INFO - Command exited with return code 0
+[2022-04-13, 21:54:09 UTC] {taskinstance.py:1277} INFO - Marking task as SUCCESS. dag_id=LocalIngestionDAG, task_id=ingest, execution_date=20211002T060056, start_date=20220413T215408, end_date=20220413T215409
+[2022-04-13, 21:54:09 UTC] {local_task_job.py:154} INFO - Task exited with return code 0
+[2022-04-13, 21:54:09 UTC] {local_task_job.py:264} INFO - 0 downstream tasks scheduled from follow-on schedule check
+
+
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ cd c:git/Data-Engineering/DigitalPub/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ ls
+Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd Data_Engineering_Zoomcamp/Week2DataIngest/airflow
+bash: cd: Data_Engineering_Zoomcamp/Week2DataIngest/airflow: No such file or directory
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd Data_Engineering_Zoomcamp/Week2DataIngestion/airflow
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ ls
+1_setup_official.md  dags_local/          docker-compose-nofrills.yml  extras/   README.md
+2_setup_nofrills.md  dags_new/            Dockerfile                   logs/     requirements.txt
+dags/                docker-compose.yaml  docs/                        plugins/  scripts/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                    PORTS                    NAMES
+d198be5adf63   airflow_airflow-webserver   "/usr/bin/dumb-init …"   49 minutes ago   Up 47 minutes (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+13db72185839   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   49 minutes ago   Up 47 minutes (healthy)   8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   7 hours ago      Up 47 minutes (healthy)   6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   7 hours ago      Up 47 minutes (healthy)   5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ more output.csv
+VendorID,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,RatecodeID,store_and_fwd_flag,PULocationID,DOLocationID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,congestion_surcharge
+1,2021-01-01 00:30:10,2021-01-01 00:36:12,1,2.10,1,N,142,43,2,8,3,0.5,0,0,0.3,11.8,2.5
+1,2021-01-01 00:51:20,2021-01-01 00:52:19,1,.20,1,N,238,151,2,3,0.5,0.5,0,0,0.3,4.3,0
+1,2021-01-01 00:43:30,2021-01-01 01:11:06,1,14.70,1,N,132,165,1,42,0.5,0.5,8.65,0,0.3,51.95,0
+1,2021-01-01 00:15:48,2021-01-01 00:31:01,0,10.60,1,N,138,132,1,29,0.5,0.5,6.05,0,0.3,36.35,0
+2,2021-01-01 00:31:49,2021-01-01 00:48:21,1,4.94,1,N,68,33,1,16.5,0.5,0.5,4.06,0,0.3,24.36,2.5
+1,2021-01-01 00:16:29,2021-01-01 00:24:30,1,1.60,1,N,224,68,1,8,3,0.5,2.35,0,0.3,14.15,2.5
+1,2021-01-01 00:00:28,2021-01-01 00:17:28,1,4.10,1,N,95,157,2,16,0.5,0.5,0,0,0.3,17.3,0
+1,2021-01-01 00:12:29,2021-01-01 00:30:34,1,5.70,1,N,90,40,2,18,3,0.5,0,0,0.3,21.8,2.5
+1,2021-01-01 00:39:16,2021-01-01 01:00:13,1,9.10,1,N,97,129,4,27.5,0.5,0.5,0,0,0.3,28.8,0
+1,2021-01-01 00:26:12,2021-01-01 00:39:46,2,2.70,1,N,263,142,1,12,3,0.5,3.15,0,0.3,18.95,2.5
+2,2021-01-01 00:15:52,2021-01-01 00:38:07,3,6.11,1,N,164,255,1,20.5,0.5,0.5,0,0,0.3,24.3,2.5
+2,2021-01-01 00:46:36,2021-01-01 00:53:45,2,1.21,1,N,255,80,1,7,0.5,0.5,2.49,0,0.3,10.79,0
+1,2021-01-01 00:10:46,2021-01-01 00:32:58,2,7.40,1,N,138,166,2,24.5,2.5,0.5,0,6.12,0.3,33.92,0
+2,2021-01-01 00:31:06,2021-01-01 00:38:52,5,1.70,1,N,142,50,1,8,0.5,0.5,2.36,0,0.3,14.16,2.5
+2,2021-01-01 00:42:11,2021-01-01 00:44:24,5,.81,1,N,50,142,2,4.5,0.5,0.5,0,0,0.3,8.3,2.5
+2,2021-01-01 00:17:48,2021-01-01 00:21:55,1,1.01,1,N,236,237,1,5.5,0.5,0.5,1,0,0.3,10.3,2.5
+2,2021-01-01 00:33:38,2021-01-01 00:38:37,1,.73,1,N,142,239,1,5.5,0.5,0.5,2.79,0,0.3,12.09,2.5
+2,2021-01-01 00:47:56,2021-01-01 00:52:53,1,1.17,1,N,238,166,1,6.5,0.5,0.5,2.06,0,0.3,12.36,2.5
+2,2021-01-01 00:04:21,2021-01-01 00:07:58,1,.78,1,N,239,238,1,4.5,0.5,0.5,1.66,0,0.3,9.96,2.5
+2,2021-01-01 00:18:36,2021-01-01 00:27:10,2,1.66,1,N,151,142,2,8.5,0.5,0.5,0,0,0.3,12.3,2.5
+2,2021-01-01 00:43:41,2021-01-01 00:48:17,3,.93,1,N,239,142,2,5.5,0.5,0.5,0,0,0.3,9.3,2.5
+2,2021-01-01 00:56:30,2021-01-01 01:02:03,2,1.16,1,N,238,142,1,6.5,0.5,0.5,1.54,0,0.3,11.84,2.5
+1,2021-01-01 00:16:27,2021-01-01 00:25:36,0,2.20,1,N,249,137,3,9,3,0.5,0,0,0.3,12.8,2.5
+1,2021-01-01 00:37:59,2021-01-01 01:01:37,0,3.60,1,N,107,163,1,17,3,0.5,10,0,0.3,30.8,2.5
+1,2021-01-01 00:37:40,2021-01-01 01:04:46,2,19.10,1,N,132,3,2,52,0.5,0.5,0,6.12,0.3,59.42,0
+1,2021-01-01 00:54:24,2021-01-01 01:16:33,1,5.40,1,N,48,226,2,20,3,0.5,0,0,0.3,23.8,2.5
+2,2021-01-01 00:34:37,2021-01-01 00:47:22,4,3.15,1,N,238,162,1,12.5,0.5,0.5,2,0,0.3,18.3,2.5
+default@13db72185839:/opt/airflow$ wc -l output.csv
+1061120 output.csv
+default@13db72185839:/opt/airflow$ ls -lh
+total 98M
+-rw-rw-r-- 1 default root  43K Apr 13 20:58 airflow.cfg
+drwxrwxrwx 1 root    root  512 Apr 13 20:58 dags
+drwxrwxrwx 1 default root  512 Apr 13 21:15 logs
+-rw-rw-r-- 1 default root  98M Apr 13 21:51 output.csv
+drwxrwxrwx 1 default root  512 Apr 10 17:50 plugins
+-rwxr-xr-x 1 root    root   40 Apr  2 19:23 requirements.txt
+drwxr-xr-x 1 root    root 4.0K Apr 13 20:56 scripts
+-rw-rw-r-- 1 default root 4.6K Apr 13 20:58 webserver_config.py
+default@13db72185839:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED       STATUS                 PORTS                    NAMES
+d198be5adf63   airflow_airflow-webserver   "/usr/bin/dumb-init …"   2 hours ago   Up 2 hours (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+13db72185839   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   2 hours ago   Up 2 hours (healthy)   8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   8 hours ago   Up 2 hours (healthy)   6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   8 hours ago   Up 2 hours (healthy)   5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  logs        output_2022-03.csv  plugins           scripts
+dags         output.csv  output_2022-04.csv  requirements.txt  webserver_config.py
+default@13db72185839:/opt/airflow$ rm output.csv
+default@13db72185839:/opt/airflow$ rm  output_2022-03.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output_2022-04.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ rm output_2022-04.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output_2022-04.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ tail output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ rm output_2022-04.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  logs                output_2022-02.csv  plugins           scripts
+dags         output_2021-02.csv  output_2022-04.csv  requirements.txt  webserver_config.py
+default@13db72185839:/opt/airflow$ wc -l output_2022-02.csv
+1 output_2022-02.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  logs                output_2022-02.csv  plugins           scripts
+dags         output_2021-02.csv  output_2022-04.csv  requirements.txt  webserver_config.py
+default@13db72185839:/opt/airflow$ wc -l output_2021-02.csv
+1148702 output_2021-02.csv
+default@13db72185839:/opt/airflow$
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+Error response from daemon: Container 13db7218583964fdfece0ec8e18acd29eb2549c87451d27adc246e65785d5f32 is not running
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ cd /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp (main)
+$ ls
+Week1BasicSetup/  Week2DataIngestion/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp (main)
+$ cd Week1BasicSetup/2_DOCKER_SQL
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker-compose up
+Starting 2_docker_sql_pgadmin_1    ... done
+Starting 2_docker_sql_pgdatabase_1 ... done
+Attaching to 2_docker_sql_pgadmin_1, 2_docker_sql_pgdatabase_1
+pgdatabase_1  |
+pgdatabase_1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+pgdatabase_1  |
+pgdatabase_1  | 2022-04-14 00:24:38.808 UTC [1] LOG:  starting PostgreSQL 13.6 (Debian 13.6-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+pgdatabase_1  | 2022-04-14 00:24:38.813 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+pgdatabase_1  | 2022-04-14 00:24:38.813 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+pgdatabase_1  | 2022-04-14 00:24:38.828 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+pgdatabase_1  | 2022-04-14 00:24:38.897 UTC [27] LOG:  database system was interrupted; last known up at 2022-04-11 15:48:33 UTC
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [1] [INFO] Starting gunicorn 20.1.0
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [1] [INFO] Using worker: gthread
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [81] [INFO] Booting worker with pid: 81
+pgdatabase_1  | 2022-04-14 00:24:51.281 UTC [27] LOG:  database system was not properly shut down; automatic recovery in progress
+pgdatabase_1  | 2022-04-14 00:24:51.316 UTC [27] LOG:  redo starts at 0/15CFF48
+pgdatabase_1  | 2022-04-14 00:24:51.317 UTC [27] LOG:  invalid record length at 0/15CFF80: wanted 24, got 0
+pgdatabase_1  | 2022-04-14 00:24:51.317 UTC [27] LOG:  redo done at 0/15CFF48
+pgdatabase_1  | 2022-04-14 00:24:51.449 UTC [1] LOG:  database system is ready to accept connections
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:42 +0000] "GET / HTTP/1.1" 302 236 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:43 +0000] "GET /login?next=%2F HTTP/1.1" 200 1429 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:43 +0000] "GET /favicon.ico?ver=60800 HTTP/1.1" 302 264 "http://127.0.0.1:8080/login?next=%2F" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:43 +0000] "GET /static/favicon.ico?ver=60800 HTTP/1.1" 200 0 "http://127.0.0.1:8080/login?next=%2F" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping 2_docker_sql_pgadmin_1    ... done
+Stopping 2_docker_sql_pgdatabase_1 ... done
+
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ cd  /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS                        PORTS                    NAMES
+07548012ed69   airflow_airflow-webserver   "/usr/bin/dumb-init …"   About a minute ago   Up About a minute (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+f13cd06666dc   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   2 minutes ago        Up 2 minutes (healthy)        8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   10 hours ago         Up 3 minutes (healthy)        6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   10 hours ago         Up 3 minutes (healthy)        5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash
+default@f13cd06666dc:/opt/airflow$ python
+Python 3.7.12 (default, Dec 21 2021, 11:54:35)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresq://root:root@pgdatabase:5432/ny_taxi')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/__init__.py", line 525, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 61, in create
+    entrypoint = u._get_entrypoint()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 172, in _get_entrypoint
+    cls = registry.load(name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 278, in load
+    "Can't load plugin: %s:%s" % (self.group, name)
+sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:postgresq
+>>> engine.connect()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'engine' is not defined
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>>
+default@f13cd06666dc:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                    PORTS                           NAMES
+92842e9b03b2   dpage/pgadmin4              "/entrypoint.sh"         6 minutes ago    Up 6 minutes              443/tcp, 0.0.0.0:8090->80/tcp   2_docker_sql_pgadmin_1
+07548012ed69   airflow_airflow-webserver   "/usr/bin/dumb-init …"   14 minutes ago   Up 14 minutes (healthy)   0.0.0.0:8080->8080/tcp          airflow_airflow-webserver_1
+f13cd06666dc   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   15 minutes ago   Up 15 minutes (healthy)   8080/tcp                        airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   10 hours ago     Up 16 minutes (healthy)   6379/tcp                        airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   10 hours ago     Up 16 minutes (healthy)   5432/tcp                        airflow_postgres_1
+29a3fff314b9   postgres:13                 "docker-entrypoint.s…"   2 days ago       Up 7 minutes              0.0.0.0:5432->5432/tcp          2_docker_sql_pgdatabase_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker container ls -a
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                      PORTS                           NAMES
+92842e9b03b2   dpage/pgadmin4              "/entrypoint.sh"         6 minutes ago    Up 6 minutes                443/tcp, 0.0.0.0:8090->80/tcp   2_docker_sql_pgadmin_1
+07548012ed69   airflow_airflow-webserver   "/usr/bin/dumb-init …"   14 minutes ago   Up 14 minutes (healthy)     0.0.0.0:8080->8080/tcp          airflow_airflow-webserver_1
+f13cd06666dc   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   16 minutes ago   Up 16 minutes (healthy)     8080/tcp                        airflow_airflow-scheduler_1
+6782476b03f2   airflow_airflow-init        "/bin/bash -c 'funct…"   16 minutes ago   Exited (0) 14 minutes ago                                   airflow_airflow-init_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   10 hours ago     Up 17 minutes (healthy)     6379/tcp                        airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   10 hours ago     Up 17 minutes (healthy)     5432/tcp                        airflow_postgres_1
+23846e71595a   redis                       "bash"                   2 days ago       Exited (0) 2 days ago                                       epic_heyrovsky
+868eaa13e896   python:3.9                  "bash"                   2 days ago       Exited (1) 2 days ago                                       magical_euler
+863cca14de90   python:3.9                  "bash ' RUN' python …"   2 days ago       Exited (127) 2 days ago                                     beautiful_ellis
+1e82c1f56cc5   python:3.9                  "bash RUN python -m …"   2 days ago       Exited (127) 2 days ago                                     trusting_noyce
+75fa1436aff3   ubuntu                      "bash"                   2 days ago       Exited (127) 2 days ago                                     nifty_mclaren
+a4f057891616   ubuntu                      "bash"                   2 days ago       Exited (127) 2 days ago                                     admiring_bouman
+29a3fff314b9   postgres:13                 "docker-entrypoint.s…"   2 days ago       Up 8 minutes                0.0.0.0:5432->5432/tcp          2_docker_sql_pgdatabase_1
+d7ea31a82109   dpage/pgadmin4              "/entrypoint.sh"         2 days ago       Created                                                     pgadmin
+47e9f8d708f3   postgres:13                 "docker-entrypoint.s…"   2 days ago       Created                                                     pg-database
+3698af9c993c   python:3.9                  "python3"                2 days ago       Exited (0) 2 days ago                                       wonderful_tu
+f1166c5d023c   ubuntu                      "bash"                   3 days ago       Exited (0) 3 days ago                                       jolly_shockley
+4a51733e65b4   python:3.9                  "bash"                   3 days ago       Exited (0) 3 days ago                                       strange_thompson
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash
+default@f13cd06666dc:/opt/airflow$ python
+Python 3.7.12 (default, Dec 21 2021, 11:54:35)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@pg-database:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pg-database" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pg-database" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> engine = create_engine('postgesql://root:root@pgdatabase:5432/ny_taxi')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/__init__.py", line 525, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 61, in create
+    entrypoint = u._get_entrypoint()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 172, in _get_entrypoint
+    cls = registry.load(name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 278, in load
+    "Can't load plugin: %s:%s" % (self.group, name)
+sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:postgesql
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@2_docker_sql_pgdatabase_1:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "2_docker_sql_pgdatabase_1" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "2_docker_sql_pgdatabase_1" to address: Name or service not known
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> exit()
+default@f13cd06666dc:/opt/airflow$ docker network ls
+bash: docker: command not found
+default@f13cd06666dc:/opt/airflow$ docker network ls
+bash: docker: command not found
+default@f13cd06666dc:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker network ls
+NETWORK ID     NAME                   DRIVER    SCOPE
+0b294ba10dda   2_docker_sql_default   bridge    local
+bdd448ed6715   airflow_default        bridge    local
+554c2df3cb21   bridge                 bridge    local
+825e0078ef9c   host                   host      local
+4945fefa6fda   none                   null      local
+aa767403bf24   pg-network             bridge    local
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash ^C
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash
+default@f13cd06666dc:/opt/airflow$ python
+Python 3.7.12 (default, Dec 21 2021, 11:54:35)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432
+/ny_taxi')
+>>> engine.connect()
+<sqlalchemy.engine.base.Connection object at 0x7fd86ed6f590>
+>>>
+
+
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ cd c:git/Data-Engineering/DigitalPub/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ ls
+Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd Data_Engineering_Zoomcamp/Week2DataIngest/airflow
+bash: cd: Data_Engineering_Zoomcamp/Week2DataIngest/airflow: No such file or directory
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd Data_Engineering_Zoomcamp/Week2DataIngestion/airflow
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ ls
+1_setup_official.md  dags_local/          docker-compose-nofrills.yml  extras/   README.md
+2_setup_nofrills.md  dags_new/            Dockerfile                   logs/     requirements.txt
+dags/                docker-compose.yaml  docs/                        plugins/  scripts/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                    PORTS                    NAMES
+d198be5adf63   airflow_airflow-webserver   "/usr/bin/dumb-init …"   49 minutes ago   Up 47 minutes (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+13db72185839   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   49 minutes ago   Up 47 minutes (healthy)   8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   7 hours ago      Up 47 minutes (healthy)   6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   7 hours ago      Up 47 minutes (healthy)   5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ more output.csv
+VendorID,tpep_pickup_datetime,tpep_dropoff_datetime,passenger_count,trip_distance,RatecodeID,store_and_fwd_flag,PULocationID,DOLocationID,payment_type,fare_amount,extra,mta_tax,tip_amount,tolls_amount,improvement_surcharge,total_amount,congestion_surcharge
+1,2021-01-01 00:30:10,2021-01-01 00:36:12,1,2.10,1,N,142,43,2,8,3,0.5,0,0,0.3,11.8,2.5
+1,2021-01-01 00:51:20,2021-01-01 00:52:19,1,.20,1,N,238,151,2,3,0.5,0.5,0,0,0.3,4.3,0
+1,2021-01-01 00:43:30,2021-01-01 01:11:06,1,14.70,1,N,132,165,1,42,0.5,0.5,8.65,0,0.3,51.95,0
+1,2021-01-01 00:15:48,2021-01-01 00:31:01,0,10.60,1,N,138,132,1,29,0.5,0.5,6.05,0,0.3,36.35,0
+2,2021-01-01 00:31:49,2021-01-01 00:48:21,1,4.94,1,N,68,33,1,16.5,0.5,0.5,4.06,0,0.3,24.36,2.5
+1,2021-01-01 00:16:29,2021-01-01 00:24:30,1,1.60,1,N,224,68,1,8,3,0.5,2.35,0,0.3,14.15,2.5
+1,2021-01-01 00:00:28,2021-01-01 00:17:28,1,4.10,1,N,95,157,2,16,0.5,0.5,0,0,0.3,17.3,0
+1,2021-01-01 00:12:29,2021-01-01 00:30:34,1,5.70,1,N,90,40,2,18,3,0.5,0,0,0.3,21.8,2.5
+1,2021-01-01 00:39:16,2021-01-01 01:00:13,1,9.10,1,N,97,129,4,27.5,0.5,0.5,0,0,0.3,28.8,0
+1,2021-01-01 00:26:12,2021-01-01 00:39:46,2,2.70,1,N,263,142,1,12,3,0.5,3.15,0,0.3,18.95,2.5
+2,2021-01-01 00:15:52,2021-01-01 00:38:07,3,6.11,1,N,164,255,1,20.5,0.5,0.5,0,0,0.3,24.3,2.5
+2,2021-01-01 00:46:36,2021-01-01 00:53:45,2,1.21,1,N,255,80,1,7,0.5,0.5,2.49,0,0.3,10.79,0
+1,2021-01-01 00:10:46,2021-01-01 00:32:58,2,7.40,1,N,138,166,2,24.5,2.5,0.5,0,6.12,0.3,33.92,0
+2,2021-01-01 00:31:06,2021-01-01 00:38:52,5,1.70,1,N,142,50,1,8,0.5,0.5,2.36,0,0.3,14.16,2.5
+2,2021-01-01 00:42:11,2021-01-01 00:44:24,5,.81,1,N,50,142,2,4.5,0.5,0.5,0,0,0.3,8.3,2.5
+2,2021-01-01 00:17:48,2021-01-01 00:21:55,1,1.01,1,N,236,237,1,5.5,0.5,0.5,1,0,0.3,10.3,2.5
+2,2021-01-01 00:33:38,2021-01-01 00:38:37,1,.73,1,N,142,239,1,5.5,0.5,0.5,2.79,0,0.3,12.09,2.5
+2,2021-01-01 00:47:56,2021-01-01 00:52:53,1,1.17,1,N,238,166,1,6.5,0.5,0.5,2.06,0,0.3,12.36,2.5
+2,2021-01-01 00:04:21,2021-01-01 00:07:58,1,.78,1,N,239,238,1,4.5,0.5,0.5,1.66,0,0.3,9.96,2.5
+2,2021-01-01 00:18:36,2021-01-01 00:27:10,2,1.66,1,N,151,142,2,8.5,0.5,0.5,0,0,0.3,12.3,2.5
+2,2021-01-01 00:43:41,2021-01-01 00:48:17,3,.93,1,N,239,142,2,5.5,0.5,0.5,0,0,0.3,9.3,2.5
+2,2021-01-01 00:56:30,2021-01-01 01:02:03,2,1.16,1,N,238,142,1,6.5,0.5,0.5,1.54,0,0.3,11.84,2.5
+1,2021-01-01 00:16:27,2021-01-01 00:25:36,0,2.20,1,N,249,137,3,9,3,0.5,0,0,0.3,12.8,2.5
+1,2021-01-01 00:37:59,2021-01-01 01:01:37,0,3.60,1,N,107,163,1,17,3,0.5,10,0,0.3,30.8,2.5
+1,2021-01-01 00:37:40,2021-01-01 01:04:46,2,19.10,1,N,132,3,2,52,0.5,0.5,0,6.12,0.3,59.42,0
+1,2021-01-01 00:54:24,2021-01-01 01:16:33,1,5.40,1,N,48,226,2,20,3,0.5,0,0,0.3,23.8,2.5
+2,2021-01-01 00:34:37,2021-01-01 00:47:22,4,3.15,1,N,238,162,1,12.5,0.5,0.5,2,0,0.3,18.3,2.5
+default@13db72185839:/opt/airflow$ wc -l output.csv
+1061120 output.csv
+default@13db72185839:/opt/airflow$ ls -lh
+total 98M
+-rw-rw-r-- 1 default root  43K Apr 13 20:58 airflow.cfg
+drwxrwxrwx 1 root    root  512 Apr 13 20:58 dags
+drwxrwxrwx 1 default root  512 Apr 13 21:15 logs
+-rw-rw-r-- 1 default root  98M Apr 13 21:51 output.csv
+drwxrwxrwx 1 default root  512 Apr 10 17:50 plugins
+-rwxr-xr-x 1 root    root   40 Apr  2 19:23 requirements.txt
+drwxr-xr-x 1 root    root 4.0K Apr 13 20:56 scripts
+-rw-rw-r-- 1 default root 4.6K Apr 13 20:58 webserver_config.py
+default@13db72185839:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED       STATUS                 PORTS                    NAMES
+d198be5adf63   airflow_airflow-webserver   "/usr/bin/dumb-init …"   2 hours ago   Up 2 hours (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+13db72185839   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   2 hours ago   Up 2 hours (healthy)   8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   8 hours ago   Up 2 hours (healthy)   6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   8 hours ago   Up 2 hours (healthy)   5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  logs        output_2022-03.csv  plugins           scripts
+dags         output.csv  output_2022-04.csv  requirements.txt  webserver_config.py
+default@13db72185839:/opt/airflow$ rm output.csv
+default@13db72185839:/opt/airflow$ rm  output_2022-03.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output_2022-04.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ rm output_2022-04.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  dags  logs  output_2022-04.csv  plugins  requirements.txt  scripts  webserver_config.py
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ tail output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ more output_2022-04.csv
+<?xml version="1.0" encoding="UTF-8"?>
+<Error><Code>NoSuchKey</Code><Message>The specified key does not exist.</Message><Key>trip data/yellow_tripdata_2022-04.csv</Key><RequestId>91EX7ANX99MFQ5GM</RequestId><HostId>mmpMgmU/e+GU4dBSEtoD6aqVwg7/i9nfNgkm5UOTFhPyHW7fgop5QhqpFfk7su60+Uii1Xnvj4k=</HostId></Error>
+default@13db72185839:/opt/airflow$ wc -l output_2022-04.csv
+1 output_2022-04.csv
+default@13db72185839:/opt/airflow$ rm output_2022-04.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  logs                output_2022-02.csv  plugins           scripts
+dags         output_2021-02.csv  output_2022-04.csv  requirements.txt  webserver_config.py
+default@13db72185839:/opt/airflow$ wc -l output_2022-02.csv
+1 output_2022-02.csv
+default@13db72185839:/opt/airflow$ ls
+airflow.cfg  logs                output_2022-02.csv  plugins           scripts
+dags         output_2021-02.csv  output_2022-04.csv  requirements.txt  webserver_config.py
+default@13db72185839:/opt/airflow$ wc -l output_2021-02.csv
+1148702 output_2021-02.csv
+default@13db72185839:/opt/airflow$
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it 13db72185839 bash
+Error response from daemon: Container 13db7218583964fdfece0ec8e18acd29eb2549c87451d27adc246e65785d5f32 is not running
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ cd /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp (main)
+$ ls
+Week1BasicSetup/  Week2DataIngestion/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp (main)
+$ cd Week1BasicSetup/2_DOCKER_SQL
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker-compose up
+Starting 2_docker_sql_pgadmin_1    ... done
+Starting 2_docker_sql_pgdatabase_1 ... done
+Attaching to 2_docker_sql_pgadmin_1, 2_docker_sql_pgdatabase_1
+pgdatabase_1  |
+pgdatabase_1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+pgdatabase_1  |
+pgdatabase_1  | 2022-04-14 00:24:38.808 UTC [1] LOG:  starting PostgreSQL 13.6 (Debian 13.6-1.pgdg110+1) on x86_64-pc-linux-gnu, compiled by gcc (Debian 10.2.1-6) 10.2.1 20210110, 64-bit
+pgdatabase_1  | 2022-04-14 00:24:38.813 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+pgdatabase_1  | 2022-04-14 00:24:38.813 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+pgdatabase_1  | 2022-04-14 00:24:38.828 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+pgdatabase_1  | 2022-04-14 00:24:38.897 UTC [27] LOG:  database system was interrupted; last known up at 2022-04-11 15:48:33 UTC
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [1] [INFO] Starting gunicorn 20.1.0
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [1] [INFO] Listening at: http://[::]:80 (1)
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [1] [INFO] Using worker: gthread
+pgadmin_1     | [2022-04-14 00:24:46 +0000] [81] [INFO] Booting worker with pid: 81
+pgdatabase_1  | 2022-04-14 00:24:51.281 UTC [27] LOG:  database system was not properly shut down; automatic recovery in progress
+pgdatabase_1  | 2022-04-14 00:24:51.316 UTC [27] LOG:  redo starts at 0/15CFF48
+pgdatabase_1  | 2022-04-14 00:24:51.317 UTC [27] LOG:  invalid record length at 0/15CFF80: wanted 24, got 0
+pgdatabase_1  | 2022-04-14 00:24:51.317 UTC [27] LOG:  redo done at 0/15CFF48
+pgdatabase_1  | 2022-04-14 00:24:51.449 UTC [1] LOG:  database system is ready to accept connections
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:42 +0000] "GET / HTTP/1.1" 302 236 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:43 +0000] "GET /login?next=%2F HTTP/1.1" 200 1429 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:43 +0000] "GET /favicon.ico?ver=60800 HTTP/1.1" 302 264 "http://127.0.0.1:8080/login?next=%2F" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+pgadmin_1     | ::ffff:172.18.0.1 - - [14/Apr/2022:00:31:43 +0000] "GET /static/favicon.ico?ver=60800 HTTP/1.1" 200 0 "http://127.0.0.1:8080/login?next=%2F" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.88 Safari/537.36"
+Gracefully stopping... (press Ctrl+C again to force)
+Stopping 2_docker_sql_pgadmin_1    ... done
+Stopping 2_docker_sql_pgdatabase_1 ... done
+
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ cd  /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED              STATUS                        PORTS                    NAMES
+07548012ed69   airflow_airflow-webserver   "/usr/bin/dumb-init …"   About a minute ago   Up About a minute (healthy)   0.0.0.0:8080->8080/tcp   airflow_airflow-webserver_1
+f13cd06666dc   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   2 minutes ago        Up 2 minutes (healthy)        8080/tcp                 airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   10 hours ago         Up 3 minutes (healthy)        6379/tcp                 airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   10 hours ago         Up 3 minutes (healthy)        5432/tcp                 airflow_postgres_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash
+default@f13cd06666dc:/opt/airflow$ python
+Python 3.7.12 (default, Dec 21 2021, 11:54:35)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresq://root:root@pgdatabase:5432/ny_taxi')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/__init__.py", line 525, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 61, in create
+    entrypoint = u._get_entrypoint()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 172, in _get_entrypoint
+    cls = registry.load(name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 278, in load
+    "Can't load plugin: %s:%s" % (self.group, name)
+sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:postgresq
+>>> engine.connect()
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'engine' is not defined
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> exit
+Use exit() or Ctrl-D (i.e. EOF) to exit
+>>>
+default@f13cd06666dc:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker ps
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                    PORTS                           NAMES
+92842e9b03b2   dpage/pgadmin4              "/entrypoint.sh"         6 minutes ago    Up 6 minutes              443/tcp, 0.0.0.0:8090->80/tcp   2_docker_sql_pgadmin_1
+07548012ed69   airflow_airflow-webserver   "/usr/bin/dumb-init …"   14 minutes ago   Up 14 minutes (healthy)   0.0.0.0:8080->8080/tcp          airflow_airflow-webserver_1
+f13cd06666dc   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   15 minutes ago   Up 15 minutes (healthy)   8080/tcp                        airflow_airflow-scheduler_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   10 hours ago     Up 16 minutes (healthy)   6379/tcp                        airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   10 hours ago     Up 16 minutes (healthy)   5432/tcp                        airflow_postgres_1
+29a3fff314b9   postgres:13                 "docker-entrypoint.s…"   2 days ago       Up 7 minutes              0.0.0.0:5432->5432/tcp          2_docker_sql_pgdatabase_1
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker container ls -a
+CONTAINER ID   IMAGE                       COMMAND                  CREATED          STATUS                      PORTS                           NAMES
+92842e9b03b2   dpage/pgadmin4              "/entrypoint.sh"         6 minutes ago    Up 6 minutes                443/tcp, 0.0.0.0:8090->80/tcp   2_docker_sql_pgadmin_1
+07548012ed69   airflow_airflow-webserver   "/usr/bin/dumb-init …"   14 minutes ago   Up 14 minutes (healthy)     0.0.0.0:8080->8080/tcp          airflow_airflow-webserver_1
+f13cd06666dc   airflow_airflow-scheduler   "/usr/bin/dumb-init …"   16 minutes ago   Up 16 minutes (healthy)     8080/tcp                        airflow_airflow-scheduler_1
+6782476b03f2   airflow_airflow-init        "/bin/bash -c 'funct…"   16 minutes ago   Exited (0) 14 minutes ago                                   airflow_airflow-init_1
+e0ec92a59347   redis:latest                "docker-entrypoint.s…"   10 hours ago     Up 17 minutes (healthy)     6379/tcp                        airflow_redis_1
+12319d3759dc   postgres:13                 "docker-entrypoint.s…"   10 hours ago     Up 17 minutes (healthy)     5432/tcp                        airflow_postgres_1
+23846e71595a   redis                       "bash"                   2 days ago       Exited (0) 2 days ago                                       epic_heyrovsky
+868eaa13e896   python:3.9                  "bash"                   2 days ago       Exited (1) 2 days ago                                       magical_euler
+863cca14de90   python:3.9                  "bash ' RUN' python …"   2 days ago       Exited (127) 2 days ago                                     beautiful_ellis
+1e82c1f56cc5   python:3.9                  "bash RUN python -m …"   2 days ago       Exited (127) 2 days ago                                     trusting_noyce
+75fa1436aff3   ubuntu                      "bash"                   2 days ago       Exited (127) 2 days ago                                     nifty_mclaren
+a4f057891616   ubuntu                      "bash"                   2 days ago       Exited (127) 2 days ago                                     admiring_bouman
+29a3fff314b9   postgres:13                 "docker-entrypoint.s…"   2 days ago       Up 8 minutes                0.0.0.0:5432->5432/tcp          2_docker_sql_pgdatabase_1
+d7ea31a82109   dpage/pgadmin4              "/entrypoint.sh"         2 days ago       Created                                                     pgadmin
+47e9f8d708f3   postgres:13                 "docker-entrypoint.s…"   2 days ago       Created                                                     pg-database
+3698af9c993c   python:3.9                  "python3"                2 days ago       Exited (0) 2 days ago                                       wonderful_tu
+f1166c5d023c   ubuntu                      "bash"                   3 days ago       Exited (0) 3 days ago                                       jolly_shockley
+4a51733e65b4   python:3.9                  "bash"                   3 days ago       Exited (0) 3 days ago                                       strange_thompson
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash
+default@f13cd06666dc:/opt/airflow$ python
+Python 3.7.12 (default, Dec 21 2021, 11:54:35)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@pg-database:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pg-database" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pg-database" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> engine = create_engine('postgesql://root:root@pgdatabase:5432/ny_taxi')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/__init__.py", line 525, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 61, in create
+    entrypoint = u._get_entrypoint()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/url.py", line 172, in _get_entrypoint
+    cls = registry.load(name)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 278, in load
+    "Can't load plugin: %s:%s" % (self.group, name)
+sqlalchemy.exc.NoSuchModuleError: Can't load plugin: sqlalchemy.dialects:postgesql
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "pgdatabase" to address: Temporary failure in name resolution
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@2_docker_sql_pgdatabase_1:5432/ny_taxi')
+>>> engine.connect()
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+psycopg2.OperationalError: could not translate host name "2_docker_sql_pgdatabase_1" to address: Name or service not known
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2263, in connect
+    return self._connection_cls(self, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 104, in __init__
+    else engine.raw_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2370, in raw_connection
+    self.pool.unique_connection, _connection
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2340, in _wrap_pool_connect
+    e, dialect, self
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1584, in _handle_dbapi_exception_noconnection
+    sqlalchemy_exception, with_traceback=exc_info[2], from_=e
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 2336, in _wrap_pool_connect
+    return fn()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 304, in unique_connection
+    return _ConnectionFairy._checkout(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 778, in _checkout
+    fairy = _ConnectionRecord.checkout(pool)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 495, in checkout
+    rec = pool._do_get()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 140, in _do_get
+    self._dec_overflow()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/impl.py", line 137, in _do_get
+    return self._create_connection()
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 309, in _create_connection
+    return _ConnectionRecord(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 440, in __init__
+    self.__connect(first_connect_check=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 661, in __connect
+    pool.logger.debug("Error on connect(): %s", e)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/langhelpers.py", line 70, in __exit__
+    with_traceback=exc_tb,
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/pool/base.py", line 656, in __connect
+    connection = pool._invoke_creator(self)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/strategies.py", line 114, in connect
+    return dialect.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 508, in connect
+    return self.dbapi.connect(*cargs, **cparams)
+  File "/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py", line 122, in connect
+    conn = _connect(dsn, connection_factory=connection_factory, **kwasync)
+sqlalchemy.exc.OperationalError: (psycopg2.OperationalError) could not translate host name "2_docker_sql_pgdatabase_1" to address: Name or service not known
+
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+>>> exit()
+default@f13cd06666dc:/opt/airflow$ docker network ls
+bash: docker: command not found
+default@f13cd06666dc:/opt/airflow$ docker network ls
+bash: docker: command not found
+default@f13cd06666dc:/opt/airflow$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker network ls
+NETWORK ID     NAME                   DRIVER    SCOPE
+0b294ba10dda   2_docker_sql_default   bridge    local
+bdd448ed6715   airflow_default        bridge    local
+554c2df3cb21   bridge                 bridge    local
+825e0078ef9c   host                   host      local
+4945fefa6fda   none                   null      local
+aa767403bf24   pg-network             bridge    local
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash ^C
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker exec -it f13cd06666dc  bash
+default@f13cd06666dc:/opt/airflow$ python
+Python 3.7.12 (default, Dec 21 2021, 11:54:35)
+[GCC 8.3.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>> from sqlalchemy import create_engine
+>>> engine = create_engine('postgresql://root:root@pgdatabase:5432/ny_taxi')
+>>> engine.connect()
+<sqlalchemy.engine.base.Connection object at 0x7fd86ed6f590>
+>>> exit()
+default@f13cd06666dc:/opt/airflow$ pgcli -h localhost -p 5432 -U root -d ny_taxi
+bash: pgcli: command not found
+default@f13cd06666dc:/opt/airflow$ conda install -c conda-forge pgcli
+bash: conda: command not found
+default@f13cd06666dc:/opt/airflow$ cd
+default@f13cd06666dc:~$ conda install -c conda-forge pgcli
+bash: conda: command not found
+default@f13cd06666dc:~$ pip install pgcli
+Collecting pgcli
+  Downloading pgcli-3.4.1-py3-none-any.whl (76 kB)
+     |████████████████████████████████| 76 kB 1.1 MB/s
+Requirement already satisfied: Pygments>=2.0 in ./.local/lib/python3.7/site-packages (from pgcli) (2.10.0)
+Collecting sqlparse<0.5,>=0.3.0
+  Downloading sqlparse-0.4.2-py3-none-any.whl (42 kB)
+     |████████████████████████████████| 42 kB 694 kB/s
+Collecting cli-helpers[styles]>=2.2.1
+  Downloading cli_helpers-2.2.1-py3-none-any.whl (19 kB)
+Requirement already satisfied: setproctitle>=1.1.9 in ./.local/lib/python3.7/site-packages (from pgcli) (1.2.2)
+Collecting pgspecial<2.0.0,>=1.13.1
+  Downloading pgspecial-1.13.1-py3-none-any.whl (35 kB)
+Requirement already satisfied: click>=4.1 in ./.local/lib/python3.7/site-packages (from pgcli) (8.0.3)
+Requirement already satisfied: prompt-toolkit<4.0.0,>=2.0.6 in ./.local/lib/python3.7/site-packages (from pgcli) (3.0.24)
+Collecting configobj>=5.0.6
+  Downloading configobj-5.0.6.tar.gz (33 kB)
+  Preparing metadata (setup.py) ... done
+Collecting psycopg2>=2.8
+  Downloading psycopg2-2.9.3.tar.gz (380 kB)
+     |████████▋                       | 102 kB 1.9 MB/s eta 0:00:0     |█████████▌                      | 112 kB 1.9 MB/s eta 0:00:0     |██████████▎                     | 122 kB 1.9 MB/s eta 0:00:0     |███████████▏                    | 133 kB 1.9 MB/s eta 0:00:0     |████████████                    | 143 kB 1.9 MB/s eta 0:00:0     |█████████████                   | 153 kB 1.9 MB/s eta 0:00:0     |█████████████▊                  | 163 kB 1.9 MB/s eta 0:00:0     |██████████████▋                 | 174 kB 1.9 MB/s eta 0:00:0     |███████████████▌                | 184 kB 1.9 MB/s eta 0:00:0     |████████████████▍               | 194 kB 1.9 MB/s eta 0:00:0     |█████████████████▏              | 204 kB 1.9 MB/s eta 0:00:0     |██████████████████              | 215 kB 1.9 MB/s eta 0:00:0     |███████████████████             | 225 kB 1.9 MB/s eta 0:00:0     |███████████████████▉            | 235 kB 1.9 MB/s eta 0:00:0     |████████████████████▋           | 245 kB 1.9 MB/s eta 0:00:0     |█████████████████████▌          | 256 kB 1.9 MB/s eta 0:00:0     |██████████████████████▍         | 266 kB 1.9 MB/s eta 0:00:0     |███████████████████████▎        | 276 kB 1.9 MB/s eta 0:00:0     |████████████████████████        | 286 kB 1.9 MB/s eta 0:00:0     |█████████████████████████       | 296 kB 1.9 MB/s eta 0:00:0     |█████████████████████████▉      | 307 kB 1.9 MB/s eta 0:00:0     |██████████████████████████▊     | 317 kB 1.9 MB/s eta 0:00:0     |███████████████████████████▌    | 327 kB 1.9 MB/s eta 0:00:0     |████████████████████████████▍   | 337 kB 1.9 MB/s eta 0:00:0     |█████████████████████████████▎  | 348 kB 1.9 MB/s eta 0:00:0     |██████████████████████████████▏ | 358 kB 1.9 MB/s eta 0:00:0     |███████████████████████████████ | 368 kB 1.9 MB/s eta 0:00:0     |███████████████████████████████▉| 378 kB 1.9 MB/s eta 0:00:0     |████████████████████████████████| 380 kB 1.9 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_fb5554268918450fb3a2b6cda10bbe4c/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_fb5554268918450fb3a2b6cda10bbe4c/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-d30xehm4
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_fb5554268918450fb3a2b6cda10bbe4c/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-d30xehm4/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-d30xehm4/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-d30xehm4/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-d30xehm4/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-d30xehm4/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <https://www.psycopg.org/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/d1/1e/b450599a27b1809bccbd4e369f397cb18dc56b875778d961f9ae180b54b7/psycopg2-2.9.3.tar.gz#sha256=8e841d1bf3434da985cc5ef13e6f75c8981ced601fd70cc6bf33351b91562981 (from https://pypi.org/simple/psycopg2/) (requires-python:>=3.6). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.9.2.tar.gz (380 kB)
+     |████████▋                       | 102 kB 2.4 MB/s eta 0:00:0     |█████████▌                      | 112 kB 2.4 MB/s eta 0:00:0     |██████████▍                     | 122 kB 2.4 MB/s eta 0:00:0     |███████████▏                    | 133 kB 2.4 MB/s eta 0:00:0     |████████████                    | 143 kB 2.4 MB/s eta 0:00:0     |█████████████                   | 153 kB 2.4 MB/s eta 0:00:0     |█████████████▉                  | 163 kB 2.4 MB/s eta 0:00:0     |██████████████▋                 | 174 kB 2.4 MB/s eta 0:00:0     |███████████████▌                | 184 kB 2.4 MB/s eta 0:00:0     |████████████████▍               | 194 kB 2.4 MB/s eta 0:00:0     |█████████████████▎              | 204 kB 2.4 MB/s eta 0:00:0     |██████████████████              | 215 kB 2.4 MB/s eta 0:00:0     |███████████████████             | 225 kB 2.4 MB/s eta 0:00:0     |███████████████████▉            | 235 kB 2.4 MB/s eta 0:00:0     |████████████████████▊           | 245 kB 2.4 MB/s eta 0:00:0     |█████████████████████▌          | 256 kB 2.4 MB/s eta 0:00:0     |██████████████████████▍         | 266 kB 2.4 MB/s eta 0:00:0     |███████████████████████▎        | 276 kB 2.4 MB/s eta 0:00:0     |████████████████████████▏       | 286 kB 2.4 MB/s eta 0:00:0     |█████████████████████████       | 296 kB 2.4 MB/s eta 0:00:0     |█████████████████████████▉      | 307 kB 2.4 MB/s eta 0:00:0     |██████████████████████████▊     | 317 kB 2.4 MB/s eta 0:00:0     |███████████████████████████▋    | 327 kB 2.4 MB/s eta 0:00:0     |████████████████████████████▍   | 337 kB 2.4 MB/s eta 0:00:0     |█████████████████████████████▎  | 348 kB 2.4 MB/s eta 0:00:0     |██████████████████████████████▏ | 358 kB 2.4 MB/s eta 0:00:0     |███████████████████████████████ | 368 kB 2.4 MB/s eta 0:00:0     |███████████████████████████████▉| 378 kB 2.4 MB/s eta 0:00:0     |████████████████████████████████| 380 kB 2.4 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_5249bd0c6098404b88021e17b4f63c58/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_5249bd0c6098404b88021e17b4f63c58/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-bcsil_my
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_5249bd0c6098404b88021e17b4f63c58/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-bcsil_my/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-bcsil_my/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-bcsil_my/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-bcsil_my/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-bcsil_my/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <https://www.psycopg.org/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/33/ed/79434011d773e5ea4c51262f6ebfb86680c2908d7677f31ebccd5aa9f1b3/psycopg2-2.9.2.tar.gz#sha256=a84da9fa891848e0270e8e04dcca073bc9046441eeb47069f5c0e36783debbea (from https://pypi.org/simple/psycopg2/) (requires-python:>=3.6). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.9.1.tar.gz (379 kB)
+     |████████▋                       | 102 kB 3.1 MB/s eta 0:00:0     |█████████▌                      | 112 kB 3.1 MB/s eta 0:00:0     |██████████▍                     | 122 kB 3.1 MB/s eta 0:00:0     |███████████▏                    | 133 kB 3.1 MB/s eta 0:00:0     |████████████                    | 143 kB 3.1 MB/s eta 0:00:0     |█████████████                   | 153 kB 3.1 MB/s eta 0:00:0     |█████████████▉                  | 163 kB 3.1 MB/s eta 0:00:0     |██████████████▋                 | 174 kB 3.1 MB/s eta 0:00:0     |███████████████▌                | 184 kB 3.1 MB/s eta 0:00:0     |████████████████▍               | 194 kB 3.1 MB/s eta 0:00:0     |█████████████████▎              | 204 kB 3.1 MB/s eta 0:00:0     |██████████████████              | 215 kB 3.1 MB/s eta 0:00:0     |███████████████████             | 225 kB 3.1 MB/s eta 0:00:0     |███████████████████▉            | 235 kB 3.1 MB/s eta 0:00:0     |████████████████████▊           | 245 kB 3.1 MB/s eta 0:00:0     |█████████████████████▋          | 256 kB 3.1 MB/s eta 0:00:0     |██████████████████████▍         | 266 kB 3.1 MB/s eta 0:00:0     |███████████████████████▎        | 276 kB 3.1 MB/s eta 0:00:0     |████████████████████████▏       | 286 kB 3.1 MB/s eta 0:00:0     |█████████████████████████       | 296 kB 3.1 MB/s eta 0:00:0     |█████████████████████████▉      | 307 kB 3.1 MB/s eta 0:00:0     |██████████████████████████▊     | 317 kB 3.1 MB/s eta 0:00:0     |███████████████████████████▋    | 327 kB 3.1 MB/s eta 0:00:0     |████████████████████████████▌   | 337 kB 3.1 MB/s eta 0:00:0     |█████████████████████████████▎  | 348 kB 3.1 MB/s eta 0:00:0     |██████████████████████████████▏ | 358 kB 3.1 MB/s eta 0:00:0     |███████████████████████████████ | 368 kB 3.1 MB/s eta 0:00:0     |████████████████████████████████| 378 kB 3.1 MB/s eta 0:00:0     |████████████████████████████████| 379 kB 3.1 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_4580010e75a44af3842f9379a5639556/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_4580010e75a44af3842f9379a5639556/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-3k4iirji
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_4580010e75a44af3842f9379a5639556/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-3k4iirji/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-3k4iirji/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-3k4iirji/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-3k4iirji/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-3k4iirji/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <https://www.psycopg.org/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/aa/8a/7c80e7e44fb1b4277e89bd9ca509aefdd4dd1b2c547c6f293afe9f7ffd04/psycopg2-2.9.1.tar.gz#sha256=de5303a6f1d0a7a34b9d40e4d3bef684ccc44a49bbe3eb85e3c0bffb4a131b7c (from https://pypi.org/simple/psycopg2/) (requires-python:>=3.6). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.9.tar.gz (379 kB)
+     |████████▋                       | 102 kB 3.8 MB/s eta 0:00:0     |█████████▌                      | 112 kB 3.8 MB/s eta 0:00:0     |██████████▍                     | 122 kB 3.8 MB/s eta 0:00:0     |███████████▏                    | 133 kB 3.8 MB/s eta 0:00:0     |████████████                    | 143 kB 3.8 MB/s eta 0:00:0     |█████████████                   | 153 kB 3.8 MB/s eta 0:00:0     |█████████████▉                  | 163 kB 3.8 MB/s eta 0:00:0     |██████████████▊                 | 174 kB 3.8 MB/s eta 0:00:0     |███████████████▌                | 184 kB 3.8 MB/s eta 0:00:0     |████████████████▍               | 194 kB 3.8 MB/s eta 0:00:0     |█████████████████▎              | 204 kB 3.8 MB/s eta 0:00:0     |██████████████████▏             | 215 kB 3.8 MB/s eta 0:00:0     |███████████████████             | 225 kB 3.8 MB/s eta 0:00:0     |███████████████████▉            | 235 kB 3.8 MB/s eta 0:00:0     |████████████████████▊           | 245 kB 3.8 MB/s eta 0:00:0     |█████████████████████▋          | 256 kB 3.8 MB/s eta 0:00:0     |██████████████████████▍         | 266 kB 3.8 MB/s eta 0:00:0     |███████████████████████▎        | 276 kB 3.8 MB/s eta 0:00:0     |████████████████████████▏       | 286 kB 3.8 MB/s eta 0:00:0     |█████████████████████████       | 296 kB 3.8 MB/s eta 0:00:0     |█████████████████████████▉      | 307 kB 3.8 MB/s eta 0:00:0     |██████████████████████████▊     | 317 kB 3.8 MB/s eta 0:00:0     |███████████████████████████▋    | 327 kB 3.8 MB/s eta 0:00:0     |████████████████████████████▌   | 337 kB 3.8 MB/s eta 0:00:0     |█████████████████████████████▍  | 348 kB 3.8 MB/s eta 0:00:0     |██████████████████████████████▏ | 358 kB 3.8 MB/s eta 0:00:0     |███████████████████████████████ | 368 kB 3.8 MB/s eta 0:00:0     |████████████████████████████████| 378 kB 3.8 MB/s eta 0:00:0     |████████████████████████████████| 379 kB 3.8 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_70c4487d17a24a378ca0821e6b142486/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_70c4487d17a24a378ca0821e6b142486/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-n2x1k_5o
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_70c4487d17a24a378ca0821e6b142486/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-n2x1k_5o/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-n2x1k_5o/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-n2x1k_5o/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-n2x1k_5o/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-n2x1k_5o/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <https://www.psycopg.org/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/6c/79/6df8af2405e2aa60732c47757453fc7fa4af5c90a1796b3392ef892d3a52/psycopg2-2.9.tar.gz#sha256=b12073fdf2002e828e5921be2c39ff9c6eab361c5c0bd6c529619fc23677accc (from https://pypi.org/simple/psycopg2/) (requires-python:>=3.6). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.6.tar.gz (383 kB)
+     |████████▌                       | 102 kB 1.7 MB/s eta 0:00:0     |█████████▍                      | 112 kB 1.7 MB/s eta 0:00:0     |██████████▎                     | 122 kB 1.7 MB/s eta 0:00:0     |███████████                     | 133 kB 1.7 MB/s eta 0:00:0     |████████████                    | 143 kB 1.7 MB/s eta 0:00:0     |████████████▉                   | 153 kB 1.7 MB/s eta 0:00:0     |█████████████▋                  | 163 kB 1.7 MB/s eta 0:00:0     |██████████████▌                 | 174 kB 1.7 MB/s eta 0:00:0     |███████████████▍                | 184 kB 1.7 MB/s eta 0:00:0     |████████████████▏               | 194 kB 1.7 MB/s eta 0:00:0     |█████████████████               | 204 kB 1.7 MB/s eta 0:00:0     |██████████████████              | 215 kB 1.7 MB/s eta 0:00:0     |██████████████████▉             | 225 kB 1.7 MB/s eta 0:00:0     |███████████████████▋            | 235 kB 1.7 MB/s eta 0:00:0     |████████████████████▌           | 245 kB 1.7 MB/s eta 0:00:0     |█████████████████████▍          | 256 kB 1.7 MB/s eta 0:00:0     |██████████████████████▏         | 266 kB 1.7 MB/s eta 0:00:0     |███████████████████████         | 276 kB 1.7 MB/s eta 0:00:0     |████████████████████████        | 286 kB 1.7 MB/s eta 0:00:0     |████████████████████████▊       | 296 kB 1.7 MB/s eta 0:00:0     |█████████████████████████▋      | 307 kB 1.7 MB/s eta 0:00:0     |██████████████████████████▌     | 317 kB 1.7 MB/s eta 0:00:0     |███████████████████████████▎    | 327 kB 1.7 MB/s eta 0:00:0     |████████████████████████████▏   | 337 kB 1.7 MB/s eta 0:00:0     |█████████████████████████████   | 348 kB 1.7 MB/s eta 0:00:0     |█████████████████████████████▉  | 358 kB 1.7 MB/s eta 0:00:0     |██████████████████████████████▊ | 368 kB 1.7 MB/s eta 0:00:0     |███████████████████████████████▋| 378 kB 1.7 MB/s eta 0:00:0     |████████████████████████████████| 383 kB 1.7 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_4907a0784a7b48e8b2f04f9cbe04aad4/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_4907a0784a7b48e8b2f04f9cbe04aad4/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-fhmy0r9g
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_4907a0784a7b48e8b2f04f9cbe04aad4/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-fhmy0r9g/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-fhmy0r9g/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-fhmy0r9g/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-fhmy0r9g/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-fhmy0r9g/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <https://www.psycopg.org/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/fd/ae/98cb7a0cbb1d748ee547b058b14604bd0e9bf285a8e0cc5d148f8a8a952e/psycopg2-2.8.6.tar.gz#sha256=fb23f6c71107c37fd667cb4ea363ddeb936b348bbd6449278eb92c189699f543 (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.5.tar.gz (380 kB)
+     |████████▋                       | 102 kB 4.4 MB/s eta 0:00:0     |█████████▌                      | 112 kB 4.4 MB/s eta 0:00:0     |██████████▎                     | 122 kB 4.4 MB/s eta 0:00:0     |███████████▏                    | 133 kB 4.4 MB/s eta 0:00:0     |████████████                    | 143 kB 4.4 MB/s eta 0:00:0     |█████████████                   | 153 kB 4.4 MB/s eta 0:00:0     |█████████████▊                  | 163 kB 4.4 MB/s eta 0:00:0     |██████████████▋                 | 174 kB 4.4 MB/s eta 0:00:0     |███████████████▌                | 184 kB 4.4 MB/s eta 0:00:0     |████████████████▍               | 194 kB 4.4 MB/s eta 0:00:0     |█████████████████▏              | 204 kB 4.4 MB/s eta 0:00:0     |██████████████████              | 215 kB 4.4 MB/s eta 0:00:0     |███████████████████             | 225 kB 4.4 MB/s eta 0:00:0     |███████████████████▉            | 235 kB 4.4 MB/s eta 0:00:0     |████████████████████▋           | 245 kB 4.4 MB/s eta 0:00:0     |█████████████████████▌          | 256 kB 4.4 MB/s eta 0:00:0     |██████████████████████▍         | 266 kB 4.4 MB/s eta 0:00:0     |███████████████████████▎        | 276 kB 4.4 MB/s eta 0:00:0     |████████████████████████        | 286 kB 4.4 MB/s eta 0:00:0     |█████████████████████████       | 296 kB 4.4 MB/s eta 0:00:0     |█████████████████████████▉      | 307 kB 4.4 MB/s eta 0:00:0     |██████████████████████████▊     | 317 kB 4.4 MB/s eta 0:00:0     |███████████████████████████▌    | 327 kB 4.4 MB/s eta 0:00:0     |████████████████████████████▍   | 337 kB 4.4 MB/s eta 0:00:0     |█████████████████████████████▎  | 348 kB 4.4 MB/s eta 0:00:0     |██████████████████████████████▏ | 358 kB 4.4 MB/s eta 0:00:0     |███████████████████████████████ | 368 kB 4.4 MB/s eta 0:00:0     |███████████████████████████████▉| 378 kB 4.4 MB/s eta 0:00:0     |████████████████████████████████| 380 kB 4.4 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_a3bfdf75c3034d2fa33d4a2a49eb9693/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_a3bfdf75c3034d2fa33d4a2a49eb9693/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-ohpzh8xl
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_a3bfdf75c3034d2fa33d4a2a49eb9693/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-ohpzh8xl/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-ohpzh8xl/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-ohpzh8xl/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-ohpzh8xl/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-ohpzh8xl/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <https://www.psycopg.org/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/a8/8f/1c5690eebf148d1d1554fc00ccf9101e134636553dbb75bdfef4f85d7647/psycopg2-2.8.5.tar.gz#sha256=f7d46240f7a1ae1dd95aab38bd74f7428d46531f69219954266d669da60c0818 (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.4.tar.gz (377 kB)
+     |▉                               | 10 kB 13.2 MB/s eta 0:00:0     |█▊                              | 20 kB 16.4 MB/s eta 0:00:0     |██▋                             | 30 kB 20.8 MB/s eta 0:00:0     |███▌                            | 40 kB 12.5 MB/s eta 0:00:0     |████▍                           | 51 kB 10.1 MB/s eta 0:00:0     |█████▏                          | 61 kB 10.4 MB/s eta 0:00:0     |██████                          | 71 kB 8.5 MB/s eta 0:00:01     |███████                         | 81 kB 8.2 MB/s eta 0:00:01     |███████▉                        | 92 kB 8.9 MB/s eta 0:00:01     |████████▊                       | 102 kB 7.3 MB/s eta 0:00:0     |█████████▌                      | 112 kB 7.3 MB/s eta 0:00:0     |██████████▍                     | 122 kB 7.3 MB/s eta 0:00:0     |███████████▎                    | 133 kB 7.3 MB/s eta 0:00:0     |████████████▏                   | 143 kB 7.3 MB/s eta 0:00:0     |█████████████                   | 153 kB 7.3 MB/s eta 0:00:0     |█████████████▉                  | 163 kB 7.3 MB/s eta 0:00:0     |██████████████▊                 | 174 kB 7.3 MB/s eta 0:00:0     |███████████████▋                | 184 kB 7.3 MB/s eta 0:00:0     |████████████████▌               | 194 kB 7.3 MB/s eta 0:00:0     |█████████████████▍              | 204 kB 7.3 MB/s eta 0:00:0     |██████████████████▏             | 215 kB 7.3 MB/s eta 0:00:0     |███████████████████             | 225 kB 7.3 MB/s eta 0:00:0     |████████████████████            | 235 kB 7.3 MB/s eta 0:00:0     |████████████████████▉           | 245 kB 7.3 MB/s eta 0:00:0     |█████████████████████▊          | 256 kB 7.3 MB/s eta 0:00:0     |██████████████████████▌         | 266 kB 7.3 MB/s eta 0:00:0     |███████████████████████▍        | 276 kB 7.3 MB/s eta 0:00:0     |████████████████████████▎       | 286 kB 7.3 MB/s eta 0:00:0     |█████████████████████████▏      | 296 kB 7.3 MB/s eta 0:00:0     |██████████████████████████      | 307 kB 7.3 MB/s eta 0:00:0     |██████████████████████████▉     | 317 kB 7.3 MB/s eta 0:00:0     |███████████████████████████▊    | 327 kB 7.3 MB/s eta 0:00:0     |████████████████████████████▋   | 337 kB 7.3 MB/s eta 0:00:0     |█████████████████████████████▌  | 348 kB 7.3 MB/s eta 0:00:0     |██████████████████████████████▍ | 358 kB 7.3 MB/s eta 0:00:0     |███████████████████████████████▏| 368 kB 7.3 MB/s eta 0:00:0     |████████████████████████████████| 377 kB 7.3 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_5552541bb5be46e9bf627fd51ac277b5/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_5552541bb5be46e9bf627fd51ac277b5/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-37prfalb
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_5552541bb5be46e9bf627fd51ac277b5/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-37prfalb/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-37prfalb/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-37prfalb/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-37prfalb/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-37prfalb/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <http://initd.org/psycopg/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/84/d7/6a93c99b5ba4d4d22daa3928b983cec66df4536ca50b22ce5dcac65e4e71/psycopg2-2.8.4.tar.gz#sha256=f898e5cc0a662a9e12bde6f931263a1bbd350cfb18e1d5336a12927851825bb6 (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.3.tar.gz (377 kB)
+     |▉                               | 10 kB 13.3 MB/s eta 0:00:0     |█▊                              | 20 kB 2.6 MB/s eta 0:00:01     |██▋                             | 30 kB 3.8 MB/s eta 0:00:01     |███▌                            | 40 kB 4.2 MB/s eta 0:00:01     |████▍                           | 51 kB 4.2 MB/s eta 0:00:01     |█████▏                          | 61 kB 4.8 MB/s eta 0:00:01     |██████                          | 71 kB 5.0 MB/s eta 0:00:01     |███████                         | 81 kB 4.9 MB/s eta 0:00:01     |███████▉                        | 92 kB 5.4 MB/s eta 0:00:01     |████████▊                       | 102 kB 5.1 MB/s eta 0:00:0     |█████████▌                      | 112 kB 5.1 MB/s eta 0:00:0     |██████████▍                     | 122 kB 5.1 MB/s eta 0:00:0     |███████████▎                    | 133 kB 5.1 MB/s eta 0:00:0     |████████████▏                   | 143 kB 5.1 MB/s eta 0:00:0     |█████████████                   | 153 kB 5.1 MB/s eta 0:00:0     |██████████████                  | 163 kB 5.1 MB/s eta 0:00:0     |██████████████▊                 | 174 kB 5.1 MB/s eta 0:00:0     |███████████████▋                | 184 kB 5.1 MB/s eta 0:00:0     |████████████████▌               | 194 kB 5.1 MB/s eta 0:00:0     |█████████████████▍              | 204 kB 5.1 MB/s eta 0:00:0     |██████████████████▎             | 215 kB 5.1 MB/s eta 0:00:0     |███████████████████             | 225 kB 5.1 MB/s eta 0:00:0     |████████████████████            | 235 kB 5.1 MB/s eta 0:00:0     |████████████████████▉           | 245 kB 5.1 MB/s eta 0:00:0     |█████████████████████▊          | 256 kB 5.1 MB/s eta 0:00:0     |██████████████████████▋         | 266 kB 5.1 MB/s eta 0:00:0     |███████████████████████▌        | 276 kB 5.1 MB/s eta 0:00:0     |████████████████████████▎       | 286 kB 5.1 MB/s eta 0:00:0     |█████████████████████████▏      | 296 kB 5.1 MB/s eta 0:00:0     |██████████████████████████      | 307 kB 5.1 MB/s eta 0:00:0     |███████████████████████████     | 317 kB 5.1 MB/s eta 0:00:0     |███████████████████████████▉    | 327 kB 5.1 MB/s eta 0:00:0     |████████████████████████████▋   | 337 kB 5.1 MB/s eta 0:00:0     |█████████████████████████████▌  | 348 kB 5.1 MB/s eta 0:00:0     |██████████████████████████████▍ | 358 kB 5.1 MB/s eta 0:00:0     |███████████████████████████████▎| 368 kB 5.1 MB/s eta 0:00:0     |████████████████████████████████| 377 kB 5.1 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_6f2d7ce3a9864d7f881c070706f8dacc/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_6f2d7ce3a9864d7f881c070706f8dacc/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-8mfofkzc
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_6f2d7ce3a9864d7f881c070706f8dacc/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-8mfofkzc/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-8mfofkzc/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-8mfofkzc/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-8mfofkzc/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-8mfofkzc/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <http://initd.org/psycopg/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/5c/1c/6997288da181277a0c29bc39a5f9143ff20b8c99f2a7d059cfb55163e165/psycopg2-2.8.3.tar.gz#sha256=897a6e838319b4bf648a574afb6cabcb17d0488f8c7195100d48d872419f4457 (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.2.tar.gz (368 kB)
+     |██▊                             | 30 kB 10.6 MB/s eta 0:00:0     |███▋                            | 40 kB 1.3 MB/s eta 0:00:01     |████▌                           | 51 kB 1.6 MB/s eta 0:00:01     |█████▍                          | 61 kB 2.0 MB/s eta 0:00:01     |██████▎                         | 71 kB 2.1 MB/s eta 0:00:01     |███████▏                        | 81 kB 2.4 MB/s eta 0:00:01     |████████                        | 92 kB 2.6 MB/s eta 0:00:01     |█████████                       | 102 kB 2.9 MB/s eta 0:00:0     |█████████▉                      | 112 kB 2.9 MB/s eta 0:00:0     |██████████▊                     | 122 kB 2.9 MB/s eta 0:00:0     |███████████▋                    | 133 kB 2.9 MB/s eta 0:00:0     |████████████▌                   | 143 kB 2.9 MB/s eta 0:00:0     |█████████████▍                  | 153 kB 2.9 MB/s eta 0:00:0     |██████████████▎                 | 163 kB 2.9 MB/s eta 0:00:0     |███████████████▏                | 174 kB 2.9 MB/s eta 0:00:0     |████████████████                | 184 kB 2.9 MB/s eta 0:00:0     |█████████████████               | 194 kB 2.9 MB/s eta 0:00:0     |█████████████████▉              | 204 kB 2.9 MB/s eta 0:00:0     |██████████████████▊             | 215 kB 2.9 MB/s eta 0:00:0     |███████████████████▋            | 225 kB 2.9 MB/s eta 0:00:0     |████████████████████▌           | 235 kB 2.9 MB/s eta 0:00:0     |█████████████████████▍          | 245 kB 2.9 MB/s eta 0:00:0     |██████████████████████▎         | 256 kB 2.9 MB/s eta 0:00:0     |███████████████████████▏        | 266 kB 2.9 MB/s eta 0:00:0     |████████████████████████        | 276 kB 2.9 MB/s eta 0:00:0     |█████████████████████████       | 286 kB 2.9 MB/s eta 0:00:0     |█████████████████████████▉      | 296 kB 2.9 MB/s eta 0:00:0     |██████████████████████████▊     | 307 kB 2.9 MB/s eta 0:00:0     |███████████████████████████▋    | 317 kB 2.9 MB/s eta 0:00:0     |████████████████████████████▌   | 327 kB 2.9 MB/s eta 0:00:0     |█████████████████████████████▍  | 337 kB 2.9 MB/s eta 0:00:0     |██████████████████████████████▎ | 348 kB 2.9 MB/s eta 0:00:0     |███████████████████████████████▏| 358 kB 2.9 MB/s eta 0:00:0     |████████████████████████████████| 368 kB 2.9 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_0b3c2e9e4d95410aa57ef5b072401536/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_0b3c2e9e4d95410aa57ef5b072401536/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-vwxh58jx
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_0b3c2e9e4d95410aa57ef5b072401536/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-vwxh58jx/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-vwxh58jx/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-vwxh58jx/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-vwxh58jx/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-vwxh58jx/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <http://initd.org/psycopg/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/23/7e/93c325482c328619870b6cd09370f6dbe1148283daca65115cd63642e60f/psycopg2-2.8.2.tar.gz#sha256=5cacf21b6f813c239f100ef78a4132056f93a5940219ec25d2ef833cbeb05588 (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.1.tar.gz (367 kB)
+     |█                               | 10 kB 13.3 MB/s eta 0:00:0     |█▉                              | 20 kB 7.7 MB/s eta 0:00:01     |██▊                             | 30 kB 9.5 MB/s eta 0:00:01     |███▋                            | 40 kB 10.6 MB/s eta 0:00:0     |████▌                           | 51 kB 4.3 MB/s eta 0:00:01     |█████▍                          | 61 kB 5.1 MB/s eta 0:00:01     |██████▎                         | 71 kB 5.7 MB/s eta 0:00:01     |███████▏                        | 81 kB 5.4 MB/s eta 0:00:01     |████████                        | 92 kB 5.9 MB/s eta 0:00:01     |█████████                       | 102 kB 6.4 MB/s eta 0:00:0     |█████████▉                      | 112 kB 6.4 MB/s eta 0:00:0     |██████████▊                     | 122 kB 6.4 MB/s eta 0:00:0     |███████████▋                    | 133 kB 6.4 MB/s eta 0:00:0     |████████████▌                   | 143 kB 6.4 MB/s eta 0:00:0     |█████████████▍                  | 153 kB 6.4 MB/s eta 0:00:0     |██████████████▎                 | 163 kB 6.4 MB/s eta 0:00:0     |███████████████▏                | 174 kB 6.4 MB/s eta 0:00:0     |████████████████                | 184 kB 6.4 MB/s eta 0:00:0     |█████████████████               | 194 kB 6.4 MB/s eta 0:00:0     |█████████████████▉              | 204 kB 6.4 MB/s eta 0:00:0     |██████████████████▊             | 215 kB 6.4 MB/s eta 0:00:0     |███████████████████▋            | 225 kB 6.4 MB/s eta 0:00:0     |████████████████████▌           | 235 kB 6.4 MB/s eta 0:00:0     |█████████████████████▍          | 245 kB 6.4 MB/s eta 0:00:0     |██████████████████████▎         | 256 kB 6.4 MB/s eta 0:00:0     |███████████████████████▏        | 266 kB 6.4 MB/s eta 0:00:0     |████████████████████████        | 276 kB 6.4 MB/s eta 0:00:0     |█████████████████████████       | 286 kB 6.4 MB/s eta 0:00:0     |█████████████████████████▉      | 296 kB 6.4 MB/s eta 0:00:0     |██████████████████████████▊     | 307 kB 6.4 MB/s eta 0:00:0     |███████████████████████████▋    | 317 kB 6.4 MB/s eta 0:00:0     |████████████████████████████▌   | 327 kB 6.4 MB/s eta 0:00:0     |█████████████████████████████▍  | 337 kB 6.4 MB/s eta 0:00:0     |██████████████████████████████▎ | 348 kB 6.4 MB/s eta 0:00:0     |███████████████████████████████▏| 358 kB 6.4 MB/s eta 0:00:0     |████████████████████████████████| 367 kB 6.4 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_3b049376d58c47a4ab95938348dc4fd5/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_3b049376d58c47a4ab95938348dc4fd5/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-u44cb6oa
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_3b049376d58c47a4ab95938348dc4fd5/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-u44cb6oa/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-u44cb6oa/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-u44cb6oa/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-u44cb6oa/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-u44cb6oa/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <http://initd.org/psycopg/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/52/be/f898e712f5f08131d651a62754fca82a1deb42e4e9889ad01932f770a2be/psycopg2-2.8.1.tar.gz#sha256=b4a475ce87eabc0607e068a3c704d0aa0820237ed78d493b8e2d880eb73cd7fe (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+  Downloading psycopg2-2.8.tar.gz (367 kB)
+     |█████████                       | 102 kB 6.2 MB/s eta 0:00:0     |█████████▉                      | 112 kB 6.2 MB/s eta 0:00:0     |██████████▊                     | 122 kB 6.2 MB/s eta 0:00:0     |███████████▋                    | 133 kB 6.2 MB/s eta 0:00:0     |████████████▌                   | 143 kB 6.2 MB/s eta 0:00:0     |█████████████▍                  | 153 kB 6.2 MB/s eta 0:00:0     |██████████████▎                 | 163 kB 6.2 MB/s eta 0:00:0     |███████████████▏                | 174 kB 6.2 MB/s eta 0:00:0     |████████████████                | 184 kB 6.2 MB/s eta 0:00:0     |█████████████████               | 194 kB 6.2 MB/s eta 0:00:0     |█████████████████▉              | 204 kB 6.2 MB/s eta 0:00:0     |██████████████████▊             | 215 kB 6.2 MB/s eta 0:00:0     |███████████████████▋            | 225 kB 6.2 MB/s eta 0:00:0     |████████████████████▌           | 235 kB 6.2 MB/s eta 0:00:0     |█████████████████████▍          | 245 kB 6.2 MB/s eta 0:00:0     |██████████████████████▎         | 256 kB 6.2 MB/s eta 0:00:0     |███████████████████████▏        | 266 kB 6.2 MB/s eta 0:00:0     |████████████████████████        | 276 kB 6.2 MB/s eta 0:00:0     |█████████████████████████       | 286 kB 6.2 MB/s eta 0:00:0     |█████████████████████████▉      | 296 kB 6.2 MB/s eta 0:00:0     |██████████████████████████▊     | 307 kB 6.2 MB/s eta 0:00:0     |███████████████████████████▋    | 317 kB 6.2 MB/s eta 0:00:0     |████████████████████████████▌   | 327 kB 6.2 MB/s eta 0:00:0     |█████████████████████████████▍  | 337 kB 6.2 MB/s eta 0:00:0     |██████████████████████████████▎ | 348 kB 6.2 MB/s eta 0:00:0     |███████████████████████████████▏| 358 kB 6.2 MB/s eta 0:00:0     |████████████████████████████████| 367 kB 6.2 MB/s
+  Preparing metadata (setup.py) ... error
+  ERROR: Command errored out with exit status 1:
+   command: /usr/local/bin/python -c 'import io, os, sys, setuptools, tokenize; sys.argv[0] = '"'"'/tmp/pip-install-dka5c7cw/psycopg2_eff2032425cb43a7832731c88fb8412a/setup.py'"'"'; __file__='"'"'/tmp/pip-install-dka5c7cw/psycopg2_eff2032425cb43a7832731c88fb8412a/setup.py'"'"';f = getattr(tokenize, '"'"'open'"'"', open)(__file__) if os.path.exists(__file__) else io.StringIO('"'"'from setuptools import setup; setup()'"'"');code = f.read().replace('"'"'\r\n'"'"', '"'"'\n'"'"');f.close();exec(compile(code, __file__, '"'"'exec'"'"'))' egg_info --egg-base /tmp/pip-pip-egg-info-f9q67hzu
+       cwd: /tmp/pip-install-dka5c7cw/psycopg2_eff2032425cb43a7832731c88fb8412a/
+  Complete output (23 lines):
+  running egg_info
+  creating /tmp/pip-pip-egg-info-f9q67hzu/psycopg2.egg-info
+  writing /tmp/pip-pip-egg-info-f9q67hzu/psycopg2.egg-info/PKG-INFO
+  writing dependency_links to /tmp/pip-pip-egg-info-f9q67hzu/psycopg2.egg-info/dependency_links.txt
+  writing top-level names to /tmp/pip-pip-egg-info-f9q67hzu/psycopg2.egg-info/top_level.txt
+  writing manifest file '/tmp/pip-pip-egg-info-f9q67hzu/psycopg2.egg-info/SOURCES.txt'
+
+  Error: pg_config executable not found.
+
+  pg_config is required to build psycopg2 from source.  Please add the directory
+  containing pg_config to the $PATH or specify the full executable path with the
+  option:
+
+      python setup.py build_ext --pg-config /path/to/pg_config build ...
+
+  or with the pg_config option in 'setup.cfg'.
+
+  If you prefer to avoid building psycopg2 from source, please install the PyPI
+  'psycopg2-binary' package instead.
+
+  For further information please check the 'doc/src/install.rst' file (also at
+  <http://initd.org/psycopg/docs/install.html>).
+
+  ----------------------------------------
+WARNING: Discarding https://files.pythonhosted.org/packages/c7/ca/75236b17f1b951950ffc55d657c5aa408d3d0327a1b6c4c0f7cb16ef7e7b/psycopg2-2.8.tar.gz#sha256=49c5838d90e83217909db3789d30a105385b5e696ec5168cda645546c542f35a (from https://pypi.org/simple/psycopg2/) (requires-python:>=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*). Command errored out with exit status 1: python setup.py egg_info Check the logs for full command output.
+Collecting pgcli
+  Downloading pgcli-3.4.0-py3-none-any.whl (75 kB)
+     |████▍                           | 10 kB 18.8 MB/s eta 0:00:0     |████████▊                       | 20 kB 14.2 MB/s eta 0:00:0     |█████████████                   | 30 kB 16.7 MB/s eta 0:00:0     |█████████████████▍              | 40 kB 6.9 MB/s eta 0:00:01     |█████████████████████▊          | 51 kB 5.5 MB/s eta 0:00:01     |██████████████████████████      | 61 kB 6.2 MB/s eta 0:00:01     |██████████████████████████████▍ | 71 kB 6.9 MB/s eta 0:00:01     |████████████████████████████████| 75 kB 2.2 MB/s
+  Downloading pgcli-3.3.1-py3-none-any.whl (74 kB)
+     |████▍                           | 10 kB 20.6 MB/s eta 0:00:0     |████████▉                       | 20 kB 24.2 MB/s eta 0:00:0     |█████████████▏                  | 30 kB 29.2 MB/s eta 0:00:0     |█████████████████▋              | 40 kB 32.9 MB/s eta 0:00:0     |██████████████████████          | 51 kB 33.8 MB/s eta 0:00:0     |██████████████████████████▍     | 61 kB 35.9 MB/s eta 0:00:0     |██████████████████████████████▊ | 71 kB 36.9 MB/s eta 0:00:0     |████████████████████████████████| 74 kB 2.4 MB/s
+  Downloading pgcli-3.3.0-py3-none-any.whl (74 kB)
+     |████▍                           | 10 kB 13.0 MB/s eta 0:00:0     |████████▉                       | 20 kB 14.6 MB/s eta 0:00:0     |█████████████▏                  | 30 kB 16.9 MB/s eta 0:00:0     |█████████████████▋              | 40 kB 20.2 MB/s eta 0:00:0     |██████████████████████          | 51 kB 11.2 MB/s eta 0:00:0     |██████████████████████████▍     | 61 kB 12.2 MB/s eta 0:00:0     |██████████████████████████████▊ | 71 kB 13.5 MB/s eta 0:00:0     |████████████████████████████████| 74 kB 1.6 MB/s
+  Downloading pgcli-3.2.0-py3-none-any.whl (74 kB)
+     |████████████████████████████████| 74 kB 1.9 MB/s
+  Downloading pgcli-3.1.0-py3-none-any.whl (72 kB)
+     |████▌                           | 10 kB 10.2 MB/s eta 0:00:0     |█████████                       | 20 kB 13.5 MB/s eta 0:00:0     |█████████████▋                  | 30 kB 16.9 MB/s eta 0:00:0     |██████████████████              | 40 kB 18.9 MB/s eta 0:00:0     |██████████████████████▋         | 51 kB 10.3 MB/s eta 0:00:0     |███████████████████████████▏    | 61 kB 11.5 MB/s eta 0:00:0     |███████████████████████████████▋| 71 kB 12.6 MB/s eta 0:00:0     |████████████████████████████████| 72 kB 528 kB/s
+  Downloading pgcli-3.0.0-py3-none-any.whl (70 kB)
+     |████▋                           | 10 kB 12.3 MB/s eta 0:00:0     |█████████▎                      | 20 kB 2.3 MB/s eta 0:00:01     |██████████████                  | 30 kB 3.3 MB/s eta 0:00:01     |██████████████████▋             | 40 kB 3.9 MB/s eta 0:00:01     |███████████████████████▎        | 51 kB 3.8 MB/s eta 0:00:01     |████████████████████████████    | 61 kB 4.4 MB/s eta 0:00:01     |████████████████████████████████| 70 kB 2.7 MB/s
+Collecting sqlparse<0.4,>=0.3.0
+  Downloading sqlparse-0.3.1-py2.py3-none-any.whl (40 kB)
+     |████████████████████████████████| 40 kB 3.4 MB/s
+Requirement already satisfied: humanize>=0.5.1 in ./.local/lib/python3.7/site-packages (from pgcli) (3.13.1)
+Collecting pgcli
+  Downloading pgcli-2.2.0-py3-none-any.whl (69 kB)
+     |████▊                           | 10 kB 12.2 MB/s eta 0:00:0     |█████████▍                      | 20 kB 15.4 MB/s eta 0:00:0     |██████████████                  | 30 kB 17.9 MB/s eta 0:00:0     |██████████████████▊             | 40 kB 4.1 MB/s eta 0:00:01     |███████████████████████▍        | 51 kB 4.3 MB/s eta 0:00:01     |████████████████████████████    | 61 kB 5.1 MB/s eta 0:00:01     |████████████████████████████████| 69 kB 3.2 MB/s
+Collecting prompt-toolkit<3.0.0,>=2.0.6
+  Downloading prompt_toolkit-2.0.10-py3-none-any.whl (340 kB)
+     |█                               | 10 kB 10.1 MB/s eta 0:00:0     |██                              | 20 kB 10.3 MB/s eta 0:00:0     |███                             | 30 kB 11.4 MB/s eta 0:00:0     |███▉                            | 40 kB 7.4 MB/s eta 0:00:01     |████▉                           | 51 kB 5.8 MB/s eta 0:00:01     |█████▉                          | 61 kB 4.7 MB/s eta 0:00:01     |██████▊                         | 71 kB 5.0 MB/s eta 0:00:01     |███████▊                        | 81 kB 5.5 MB/s eta 0:00:01     |████████▊                       | 92 kB 6.0 MB/s eta 0:00:01     |█████████▋                      | 102 kB 6.6 MB/s eta 0:00:0     |██████████▋                     | 112 kB 6.6 MB/s eta 0:00:0     |███████████▋                    | 122 kB 6.6 MB/s eta 0:00:0     |████████████▌                   | 133 kB 6.6 MB/s eta 0:00:0     |█████████████▌                  | 143 kB 6.6 MB/s eta 0:00:0     |██████████████▌                 | 153 kB 6.6 MB/s eta 0:00:0     |███████████████▍                | 163 kB 6.6 MB/s eta 0:00:0     |████████████████▍               | 174 kB 6.6 MB/s eta 0:00:0     |█████████████████▍              | 184 kB 6.6 MB/s eta 0:00:0     |██████████████████▎             | 194 kB 6.6 MB/s eta 0:00:0     |███████████████████▎            | 204 kB 6.6 MB/s eta 0:00:0     |████████████████████▎           | 215 kB 6.6 MB/s eta 0:00:0     |█████████████████████▏          | 225 kB 6.6 MB/s eta 0:00:0     |██████████████████████▏         | 235 kB 6.6 MB/s eta 0:00:0     |███████████████████████▏        | 245 kB 6.6 MB/s eta 0:00:0     |████████████████████████        | 256 kB 6.6 MB/s eta 0:00:0     |█████████████████████████       | 266 kB 6.6 MB/s eta 0:00:0     |██████████████████████████      | 276 kB 6.6 MB/s eta 0:00:0     |███████████████████████████     | 286 kB 6.6 MB/s eta 0:00:0     |████████████████████████████    | 296 kB 6.6 MB/s eta 0:00:0     |█████████████████████████████   | 307 kB 6.6 MB/s eta 0:00:0     |█████████████████████████████▉  | 317 kB 6.6 MB/s eta 0:00:0     |██████████████████████████████▉ | 327 kB 6.6 MB/s eta 0:00:0     |███████████████████████████████▉| 337 kB 6.6 MB/s eta 0:00:0     |████████████████████████████████| 340 kB 6.6 MB/s
+Collecting pgcli
+  Downloading pgcli-2.1.1-py3-none-any.whl (69 kB)
+     |████▊                           | 10 kB 19.7 MB/s eta 0:00:0     |█████████▌                      | 20 kB 8.1 MB/s eta 0:00:01     |██████████████▏                 | 30 kB 10.5 MB/s eta 0:00:0     |███████████████████             | 40 kB 3.6 MB/s eta 0:00:01     |███████████████████████▊        | 51 kB 4.3 MB/s eta 0:00:01     |████████████████████████████▍   | 61 kB 5.1 MB/s eta 0:00:01     |████████████████████████████████| 69 kB 3.2 MB/s
+Collecting psycopg2>=2.7.4
+  Downloading psycopg2-2.7.7-cp37-cp37m-manylinux1_x86_64.whl (2.7 MB)
+     |█▏                              | 102 kB 3.9 MB/s eta 0:00:0     |█▍                              | 112 kB 3.9 MB/s eta 0:00:0     |█▌                              | 122 kB 3.9 MB/s eta 0:00:0     |█▋                              | 133 kB 3.9 MB/s eta 0:00:0     |█▊                              | 143 kB 3.9 MB/s eta 0:00:0     |█▉                              | 153 kB 3.9 MB/s eta 0:00:0     |██                              | 163 kB 3.9 MB/s eta 0:00:0     |██                              | 174 kB 3.9 MB/s eta 0:00:0     |██▏                             | 184 kB 3.9 MB/s eta 0:00:0     |██▎                             | 194 kB 3.9 MB/s eta 0:00:0     |██▍                             | 204 kB 3.9 MB/s eta 0:00:0     |██▋                             | 215 kB 3.9 MB/s eta 0:00:0     |██▊                             | 225 kB 3.9 MB/s eta 0:00:0     |██▉                             | 235 kB 3.9 MB/s eta 0:00:0     |███                             | 245 kB 3.9 MB/s eta 0:00:0     |███                             | 256 kB 3.9 MB/s eta 0:00:0     |███▏                            | 266 kB 3.9 MB/s eta 0:00:0     |███▎                            | 276 kB 3.9 MB/s eta 0:00:0     |███▍                            | 286 kB 3.9 MB/s eta 0:00:0     |███▌                            | 296 kB 3.9 MB/s eta 0:00:0     |███▋                            | 307 kB 3.9 MB/s eta 0:00:0     |███▊                            | 317 kB 3.9 MB/s eta 0:00:0     |████                            | 327 kB 3.9 MB/s eta 0:00:0     |████                            | 337 kB 3.9 MB/s eta 0:00:0     |████▏                           | 348 kB 3.9 MB/s eta 0:00:0     |████▎                           | 358 kB 3.9 MB/s eta 0:00:0     |████▍                           | 368 kB 3.9 MB/s eta 0:00:0     |████▌                           | 378 kB 3.9 MB/s eta 0:00:0     |████▋                           | 389 kB 3.9 MB/s eta 0:00:0     |████▊                           | 399 kB 3.9 MB/s eta 0:00:0     |████▉                           | 409 kB 3.9 MB/s eta 0:00:0     |█████                           | 419 kB 3.9 MB/s eta 0:00:0     |█████▏                          | 430 kB 3.9 MB/s eta 0:00:0     |█████▎                          | 440 kB 3.9 MB/s eta 0:00:0     |█████▍                          | 450 kB 3.9 MB/s eta 0:00:0     |█████▌                          | 460 kB 3.9 MB/s eta 0:00:0     |█████▋                          | 471 kB 3.9 MB/s eta 0:00:0     |█████▊                          | 481 kB 3.9 MB/s eta 0:00:0     |█████▉                          | 491 kB 3.9 MB/s eta 0:00:0     |██████                          | 501 kB 3.9 MB/s eta 0:00:0     |██████                          | 512 kB 3.9 MB/s eta 0:00:0     |██████▏                         | 522 kB 3.9 MB/s eta 0:00:0     |██████▍                         | 532 kB 3.9 MB/s eta 0:00:0     |██████▌                         | 542 kB 3.9 MB/s eta 0:00:0     |██████▋                         | 552 kB 3.9 MB/s eta 0:00:0     |██████▊                         | 563 kB 3.9 MB/s eta 0:00:0     |██████▉                         | 573 kB 3.9 MB/s eta 0:00:0     |███████                         | 583 kB 3.9 MB/s eta 0:00:0     |███████                         | 593 kB 3.9 MB/s eta 0:00:0     |███████▏                        | 604 kB 3.9 MB/s eta 0:00:0     |███████▎                        | 614 kB 3.9 MB/s eta 0:00:0     |███████▍                        | 624 kB 3.9 MB/s eta 0:00:0     |███████▌                        | 634 kB 3.9 MB/s eta 0:00:0     |███████▊                        | 645 kB 3.9 MB/s eta 0:00:0     |███████▉                        | 655 kB 3.9 MB/s eta 0:00:0     |████████                        | 665 kB 3.9 MB/s eta 0:00:0     |████████                        | 675 kB 3.9 MB/s eta 0:00:0     |████████▏                       | 686 kB 3.9 MB/s eta 0:00:0     |████████▎                       | 696 kB 3.9 MB/s eta 0:00:0     |████████▍                       | 706 kB 3.9 MB/s eta 0:00:0     |████████▌                       | 716 kB 3.9 MB/s eta 0:00:0     |████████▋                       | 727 kB 3.9 MB/s eta 0:00:0     |████████▊                       | 737 kB 3.9 MB/s eta 0:00:0     |█████████                       | 747 kB 3.9 MB/s eta 0:00:0     |█████████                       | 757 kB 3.9 MB/s eta 0:00:0     |█████████▏                      | 768 kB 3.9 MB/s eta 0:00:0     |█████████▎                      | 778 kB 3.9 MB/s eta 0:00:0     |█████████▍                      | 788 kB 3.9 MB/s eta 0:00:0     |█████████▌                      | 798 kB 3.9 MB/s eta 0:00:0     |█████████▋                      | 808 kB 3.9 MB/s eta 0:00:0     |█████████▊                      | 819 kB 3.9 MB/s eta 0:00:0     |█████████▉                      | 829 kB 3.9 MB/s eta 0:00:0     |██████████                      | 839 kB 3.9 MB/s eta 0:00:0     |██████████                      | 849 kB 3.9 MB/s eta 0:00:0     |██████████▎                     | 860 kB 3.9 MB/s eta 0:00:0     |██████████▍                     | 870 kB 3.9 MB/s eta 0:00:0     |██████████▌                     | 880 kB 3.9 MB/s eta 0:00:0     |██████████▋                     | 890 kB 3.9 MB/s eta 0:00:0     |██████████▊                     | 901 kB 3.9 MB/s eta 0:00:0     |██████████▉                     | 911 kB 3.9 MB/s eta 0:00:0     |███████████                     | 921 kB 3.9 MB/s eta 0:00:0     |███████████                     | 931 kB 3.9 MB/s eta 0:00:0     |███████████▏                    | 942 kB 3.9 MB/s eta 0:00:0     |███████████▎                    | 952 kB 3.9 MB/s eta 0:00:0     |███████████▌                    | 962 kB 3.9 MB/s eta 0:00:0     |███████████▋                    | 972 kB 3.9 MB/s eta 0:00:0     |███████████▊                    | 983 kB 3.9 MB/s eta 0:00:0     |███████████▉                    | 993 kB 3.9 MB/s eta 0:00:0     |████████████                    | 1.0 MB 3.9 MB/s eta 0:00:0     |████████████                    | 1.0 MB 3.9 MB/s eta 0:00:0     |████████████▏                   | 1.0 MB 3.9 MB/s eta 0:00:0     |████████████▎                   | 1.0 MB 3.9 MB/s eta 0:00:0     |████████████▍                   | 1.0 MB 3.9 MB/s eta 0:00:0     |████████████▌                   | 1.1 MB 3.9 MB/s eta 0:00:0     |████████████▊                   | 1.1 MB 3.9 MB/s eta 0:00:0     |████████████▉                   | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████                   | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████                   | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████▏                  | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████▎                  | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████▍                  | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████▌                  | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████▋                  | 1.1 MB 3.9 MB/s eta 0:00:0     |█████████████▊                  | 1.2 MB 3.9 MB/s eta 0:00:0     |█████████████▉                  | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████                  | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▏                 | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▎                 | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▍                 | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▌                 | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▋                 | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▊                 | 1.2 MB 3.9 MB/s eta 0:00:0     |██████████████▉                 | 1.2 MB 3.9 MB/s eta 0:00:0     |███████████████                 | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████                 | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████▎                | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████▍                | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████▌                | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████▋                | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████▊                | 1.3 MB 3.9 MB/s eta 0:00:0     |███████████████▉                | 1.3 MB 3.9 MB/s eta 0:00:0     |████████████████                | 1.3 MB 3.9 MB/s eta 0:00:0     |████████████████                | 1.4 MB 3.9 MB/s eta 0:00:0     |████████████████▏               | 1.4 MB 3.9 MB/s eta 0:00:0     |████████████████▎               | 1.4 MB 3.9 MB/s eta 0:00:0     |████████████████▍               | 1.4 MB 3.9 MB/s eta 0:00:0     |████████████████▋               | 1.4 MB 3.9 MB/s eta 0:00:0     |████████████████▊               | 1.4 MB 3.9 MB/s eta 0:00:0     |████████████████▉               | 1.4 MB 3.9 MB/s eta 0:00:0     |█████████████████               | 1.4 MB 3.9 MB/s eta 0:00:0     |█████████████████               | 1.4 MB 3.9 MB/s eta 0:00:0     |█████████████████▏              | 1.4 MB 3.9 MB/s eta 0:00:0     |█████████████████▎              | 1.5 MB 3.9 MB/s eta 0:00:0     |█████████████████▍              | 1.5 MB 3.9 MB/s eta 0:00:0     |█████████████████▌              | 1.5 MB 3.9 MB/s eta 0:00:0     |█████████████████▋              | 1.5 MB 3.9 MB/s eta 0:00:0     |█████████████████▉              | 1.5 MB 3.9 MB/s eta 0:00:0     |██████████████████              | 1.5 MB 3.9 MB/s eta 0:00:0     |██████████████████              | 1.5 MB 3.9 MB/s eta 0:00:0     |██████████████████▏             | 1.5 MB 3.9 MB/s eta 0:00:0     |██████████████████▎             | 1.5 MB 3.9 MB/s eta 0:00:0     |██████████████████▍             | 1.5 MB 3.9 MB/s eta 0:00:0     |██████████████████▌             | 1.6 MB 3.9 MB/s eta 0:00:0     |██████████████████▋             | 1.6 MB 3.9 MB/s eta 0:00:0     |██████████████████▊             | 1.6 MB 3.9 MB/s eta 0:00:0     |██████████████████▉             | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████             | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████▏            | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████▎            | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████▍            | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████▌            | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████▋            | 1.6 MB 3.9 MB/s eta 0:00:0     |███████████████████▊            | 1.7 MB 3.9 MB/s eta 0:00:0     |███████████████████▉            | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████            | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████            | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████▏           | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████▍           | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████▌           | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████▋           | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████▊           | 1.7 MB 3.9 MB/s eta 0:00:0     |████████████████████▉           | 1.8 MB 3.9 MB/s eta 0:00:0     |█████████████████████           | 1.8 MB 3.9 MB/s eta 0:00:0     |█████████████████████           | 1.8 MB 3.9 MB/s eta 0:00:0     |█████████████████████▏          | 1.8 MB 3.9 MB/s eta 0:00:0     |█████████████████████▎          | 1.8 MB 3.9 MB/s eta 0:00:0     |█████████████████████▍          | 1.8 MB 327 kB/s eta 0:00:0     |█████████████████████▋          | 1.8 MB 327 kB/s eta 0:00:0     |█████████████████████▊          | 1.8 MB 327 kB/s eta 0:00:0     |█████████████████████▉          | 1.8 MB 327 kB/s eta 0:00:0     |██████████████████████          | 1.8 MB 327 kB/s eta 0:00:0     |██████████████████████          | 1.9 MB 327 kB/s eta 0:00:0     |██████████████████████▏         | 1.9 MB 327 kB/s eta 0:00:0     |██████████████████████▎         | 1.9 MB 327 kB/s eta 0:00:0     |██████████████████████▍         | 1.9 MB 327 kB/s eta 0:00:0     |██████████████████████▌         | 1.9 MB 327 kB/s eta 0:00:0     |██████████████████████▋         | 1.9 MB 327 kB/s eta 0:00:0     |██████████████████████▊         | 1.9 MB 327 kB/s eta 0:00:0     |███████████████████████         | 1.9 MB 327 kB/s eta 0:00:0     |███████████████████████         | 1.9 MB 327 kB/s eta 0:00:0     |███████████████████████▏        | 1.9 MB 327 kB/s eta 0:00:0     |███████████████████████▎        | 2.0 MB 327 kB/s eta 0:00:0     |███████████████████████▍        | 2.0 MB 327 kB/s eta 0:00:0     |███████████████████████▌        | 2.0 MB 327 kB/s eta 0:00:0     |███████████████████████▋        | 2.0 MB 327 kB/s eta 0:00:0     |███████████████████████▊        | 2.0 MB 327 kB/s eta 0:00:0     |███████████████████████▉        | 2.0 MB 327 kB/s eta 0:00:0     |████████████████████████        | 2.0 MB 327 kB/s eta 0:00:0     |████████████████████████▏       | 2.0 MB 327 kB/s eta 0:00:0     |████████████████████████▎       | 2.0 MB 327 kB/s eta 0:00:0     |████████████████████████▍       | 2.0 MB 327 kB/s eta 0:00:0     |████████████████████████▌       | 2.1 MB 327 kB/s eta 0:00:0     |████████████████████████▋       | 2.1 MB 327 kB/s eta 0:00:0     |████████████████████████▊       | 2.1 MB 327 kB/s eta 0:00:0     |████████████████████████▉       | 2.1 MB 327 kB/s eta 0:00:0     |█████████████████████████       | 2.1 MB 327 kB/s eta 0:00:0     |█████████████████████████       | 2.1 MB 327 kB/s eta 0:00:0     |█████████████████████████▏      | 2.1 MB 327 kB/s eta 0:00:0     |█████████████████████████▍      | 2.1 MB 327 kB/s eta 0:00:0     |█████████████████████████▌      | 2.1 MB 327 kB/s eta 0:00:0     |█████████████████████████▋      | 2.2 MB 327 kB/s eta 0:00:0     |█████████████████████████▊      | 2.2 MB 327 kB/s eta 0:00:0     |█████████████████████████▉      | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████      | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████      | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████▏     | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████▎     | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████▍     | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████▌     | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████▊     | 2.2 MB 327 kB/s eta 0:00:0     |██████████████████████████▉     | 2.3 MB 327 kB/s eta 0:00:0     |███████████████████████████     | 2.3 MB 327 kB/s eta 0:00:0     |███████████████████████████     | 2.3 MB 327 kB/s eta 0:00:0     |███████████████████████████▏    | 2.3 MB 327 kB/s eta 0:00:0     |███████████████████████████▎    | 2.3 MB 366 kB/s eta 0:00:0     |███████████████████████████▍    | 2.3 MB 366 kB/s eta 0:00:0     |███████████████████████████▌    | 2.3 MB 366 kB/s eta 0:00:0     |███████████████████████████▋    | 2.3 MB 366 kB/s eta 0:00:0     |███████████████████████████▊    | 2.3 MB 366 kB/s eta 0:00:0     |████████████████████████     |     |████████████████████████████████| 2.7 MB 366 kB/s            ████| 2.7 MB 366 kB/s eta 0:00:01█████████████████████████▊  | 2.5 MB 3Requirement already satisfied: tabulate[widechars]>=0.8.2 in ./.local/lib/python3.7/site-packages (from cli-helpers[styles]>=2.2.1->pgcli) (0.8.9)
+Requirement already satisfied: importlib-metadata in ./.local/lib/python3.7/site-packages (from click>=4.1->pgcli) (4.8.2)
+Requirement already satisfied: six in ./.local/lib/python3.7/site-packages (from configobj>=5.0.6->pgcli) (1.16.0)
+Requirement already satisfied: wcwidth in ./.local/lib/python3.7/site-packages (from prompt-toolkit<3.0.0,>=2.0.6->pgcli) (0.2.5)
+Requirement already satisfied: zipp>=0.5 in ./.local/lib/python3.7/site-packages (from importlib-metadata->click>=4.1->pgcli) (3.6.0)
+Requirement already satisfied: typing-extensions>=3.6.4 in ./.local/lib/python3.7/site-packages (from importlib-metadata->click>=4.1->pgcli) (3.10.0.2)
+Building wheels for collected packages: configobj
+  Building wheel for configobj (setup.py) ... done
+  Created wheel for configobj: filename=configobj-5.0.6-py3-none-any.whl size=34546 sha256=379adc79c4166beee9ce7c3bea57e523c247931a2a1aa43ccd6acf82c902f4af
+  Stored in directory: /home/airflow/.cache/pip/wheels/0d/c4/19/13d74440f2a571841db6b6e0a273694327498884dafb9cf978
+Successfully built configobj
+Installing collected packages: configobj, sqlparse, psycopg2, cli-helpers, prompt-toolkit, pgspecial, pgcli
+  Attempting uninstall: prompt-toolkit
+    Found existing installation: prompt-toolkit 3.0.24
+    Uninstalling prompt-toolkit-3.0.24:
+      Successfully uninstalled prompt-toolkit-3.0.24
+Successfully installed cli-helpers-2.2.1 configobj-5.0.6 pgcli-2.1.1 pgspecial-1.13.1 prompt-toolkit-2.0.10 psycopg2-2.7.7 sqlparse-0.3.1
+WARNING: You are using pip version 21.3.1; however, version 22.0.4 is available.
+You should consider upgrading via the '/usr/local/bin/python -m pip install --upgrade pip' command.
+default@f13cd06666dc:~$ pgcli -h localhost -p 5432 -U root -d ny_taxi
+/home/airflow/.local/lib/python3.7/site-packages/psycopg2/__init__.py:144: UserWarning: The psycopg2 wheel package will be renamed from release 2.8; in order to keep installing from binary please use "pip install psycopg2-binary" instead. For details see: <http://initd.org/psycopg/docs/install.html#binary-install-from-pypi>.
+  """)
+could not connect to server: Connection refused
+        Is the server running on host "localhost" (127.0.0.1) and accepting
+        TCP/IP connections on port 5432?
+could not connect to server: Cannot assign requested address
+        Is the server running on host "localhost" (::1) and accepting
+        TCP/IP connections on port 5432?
+
+default@f13cd06666dc:~$ pip uninstall pgcli
+Found existing installation: pgcli 2.1.1
+Uninstalling pgcli-2.1.1:
+  Would remove:
+    /home/airflow/.local/bin/pgcli
+    /home/airflow/.local/lib/python3.7/site-packages/pgcli-2.1.1.dist-info/*
+    /home/airflow/.local/lib/python3.7/site-packages/pgcli/*
+Proceed (Y/n)? y
+  Successfully uninstalled pgcli-2.1.1
+default@f13cd06666dc:~$ conda install -c conda-forge pgcli
+bash: conda: command not found
+default@f13cd06666dc:~$ exit
+exit
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/giclear
+bash: cd: /c/git/Data-Engineering/Digitclear: No such file or directory
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$  conda install -c conda-forge pgcli
+bash: conda: command not found
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$

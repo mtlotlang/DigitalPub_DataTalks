@@ -1,0 +1,67 @@
+
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ git config --global user.name  "mtlotlang"
+
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ git config --global user.email  mtlotlang@consultant.com
+
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ cd c:/git/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git
+$ ls
+Data-Engineering/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git
+$ cd c:/git/Data-Engineering/DigitalPub
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ ls
+Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub (main)
+$ cd c:/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp (main)
+$ ls
+Week1BasicSetup/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp (main)
+$ cd c:/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup (main)
+$ ls
+1_TERRAFORM_GCP/  2_DOCKER_SQL/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup (main)
+$ git pull
+Already up to date.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup (main)
+$ git add 1_TERRAFORM_GCP
+warning: LF will be replaced by CRLF in Data_Engineering_Zoomcamp/Week1BasicSetup/1_TERRAFORM_GCP/terraform/main.tf.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in Data_Engineering_Zoomcamp/Week1BasicSetup/1_TERRAFORM_GCP/terraform/variables.tf.
+The file will have its original line endings in your working directory
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup (main)
+$ git commit -m "first commit"
+[main 434b8a4] first commit
+ 2 files changed, 73 insertions(+)
+ create mode 100644 Data_Engineering_Zoomcamp/Week1BasicSetup/1_TERRAFORM_GCP/terraform/main.tf
+ create mode 100644 Data_Engineering_Zoomcamp/Week1BasicSetup/1_TERRAFORM_GCP/terraform/variables.tf
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup (main)
+$ git push -u origin main
+Enumerating objects: 11, done.
+Counting objects: 100% (11/11), done.
+Delta compression using up to 8 threads
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (8/8), 1.44 KiB | 184.00 KiB/s, done.
+Total 8 (delta 0), reused 0 (delta 0), pack-reused 0
+To https://github.com/mtlotlang/DigitalPub.git
+   c19116c..434b8a4  main -> main
+branch 'main' set up to track 'origin/main'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup (main)
+$

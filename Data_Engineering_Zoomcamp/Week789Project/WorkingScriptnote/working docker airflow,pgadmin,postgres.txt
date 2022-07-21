@@ -1,0 +1,709 @@
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/wee
+$ docker-compose build
+ STATUS                    PORTS     NAMES
+f1166c5d023c   ubuntu       "bash"      12 hours ago  
+ Exited (0) 12 hours ago             jolly_shockley   
+b7512db1d0d7   ubuntu       "bash"      13 hours ago   Exited (0) 13 hours ago             pri
+4a51733e65b4   python:3.9   "bash"      13 hours ago   Exited (0) 13 hours ago             str
+2ae9cfb83d40   python:3.9   "bash"      13 hours ago   Exited (0) 13 hours ago             zea
+$ cd c:git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ ls
+1_TERRAFORM_GCP/  2_DOCKER_SQL/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ cd c:git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ docker-compose up -d
+Creating network "2_docker_sql_default" with the default driver
+Pulling pgdatabase (postgres:13)...
+ERROR: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io on 192.16
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ docker login
+Authenticating with existing credentials...
+Login Succeeded
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ docker-compose up -d
+Pulling pgdatabase (postgres:13)...
+ERROR: Head "https://registry-1.docker.io/v2/library/postgres/manifests/13": Get "https://auth
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ docker run -it abuntu bash
+Unable to find image 'abuntu:latest' locally
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Wee
+$ docker run -it   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com"   -e PGADMIN_DEFAULT_PASSWORD="r
+Unable to find image 'dpage/pgadmin4:latest' locally
+docker: Error response from daemon: Get "https://registry-1.docker.io/v2/": net/http: request 
+$ which docker
+/c/Program Files/Docker/Docker/resources/bin/docker
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker run -it \
+>   -e POSTGRES_USER="root" \    
+>   -e POSTGRES_PASSWORD="root" \
+>   -e POSTGRES_DB="ny_taxi" \
+>   -v C:/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKta \
+>   -p 5432:5432 \        
+>   --network=pg-network \
+>   -ER_SQL/ny_taxi_postges_data:/var/lib/postgresql/da-name pg-database \
+>   postgres:13
+unknown shorthand flag: 'E' in -ER_SQL/ny_taxi_postges_data:C:/Program Files/Git/var/lib/postgresql/da-name
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$  docker run -it \
+>   -e POSTGRES_USER="root" \
+>   -e POSTGRES_PASSWORD="root" \
+>   -e POSTGRES_DB="ny_taxi" \
+>   -v $(pwd)/ny_taxi_postges_data:/var/lib/postgresql/data \
+>   -p 5432:5432 \        
+>   --network=pg-network \
+>   --name pg-database \
+>   postgres:13
+Unable to find image 'postgres:13' locally
+13: Pulling from library/postgres
+c229119241af: Retrying in 1 second
+3ff4ca332580: Retrying in 1 second
+5037f3c12de6: Download complete
+0444ef779945: Download complete
+47098a4166e7: Retrying in 1 second
+203cca980fab: Downloading
+a479b6c0e001: Downloading
+1eaa9abe8ca4: Downloading
+113f50383ee6: Download complete
+2abdc4f6d216: Download complete
+208ab7ebe2d3: Download complete
+0695aa3abf50: Download complete
+ba6456490b54: Download complete
+docker: dial tcp: lookup auth.docker.io on 192.168.65.5:53: no such host.
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$  docker run -it   -e POSTGRES_USER="root"   -e POSTGRES_PASSWORD="root"   -e POSTGRES_DB="ny_taxi"   -v $(pwd)/ny_taxi_postges_data:/var/lib/postgresql/data   -p 5432:5432   --network=pg-network   --name pg-database   postgres:13
+Unable to find image 'postgres:13' locally
+13: Pulling from library/postgres
+c229119241af: Pull complete
+3ff4ca332580: Pull complete
+5037f3c12de6: Pull complete
+0444ef779945: Pull complete
+47098a4166e7: Pull complete
+203cca980fab: Pull complete
+a479b6c0e001: Pull complete
+1eaa9abe8ca4: Pull complete
+113f50383ee6: Pull complete
+2abdc4f6d216: Pull complete
+208ab7ebe2d3: Pull complete
+0695aa3abf50: Pull complete
+ba6456490b54: Pull complete
+Digest: sha256:43568014f86275fd51992b9c8a6cf528d3acb6da8bcabfac04ed5abecb56a1c1
+Status: Downloaded newer image for postgres:13
+docker: Error response from daemon: network pg-network not found.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container ls -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS     NAMES
+47e9f8d708f3   postgres:13   "docker-entrypoint.s…"   59 seconds ago   Created                               pg-database
+3698af9c993c   python:3.9    "python3"                36 minutes ago   Exited (0) 26 minutes ago             wonderful_tu
+f1166c5d023c   ubuntu        "bash"                   13 hours ago     Exited (0) 13 hours ago               jolly_shockley
+b7512db1d0d7   ubuntu        "bash"                   14 hours ago     Exited (0) 14 hours ago               priceless_shannon
+4a51733e65b4   python:3.9    "bash"                   14 hours ago     Exited (0) 14 hours ago               strange_thompson
+2ae9cfb83d40   python:3.9    "bash"                   14 hours ago     Exited (0) 14 hours ago               zealous_sinoussi
+03a252a2bf15   python:3.9    "python3"                17 hours ago     Exited (0) 17 hours ago               condescending_stonebraker
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container stop 03a252a2bf15
+03a252a2bf15
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container rm 03a252a2bf15
+03a252a2bf15
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container stop 2ae9cfb83d40
+2ae9cfb83d40
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container rm 2ae9cfb83d40
+2ae9cfb83d40
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container ls -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS     NAMES
+47e9f8d708f3   postgres:13   "docker-entrypoint.s…"   4 minutes ago    Created                               pg-database
+3698af9c993c   python:3.9    "python3"                40 minutes ago   Exited (0) 30 minutes ago             wonderful_tu
+f1166c5d023c   ubuntu        "bash"                   13 hours ago     Exited (0) 13 hours ago               jolly_shockley
+b7512db1d0d7   ubuntu        "bash"                   14 hours ago     Exited (0) 14 hours ago               priceless_shannon
+4a51733e65b4   python:3.9    "bash"                   14 hours ago     Exited (0) 14 hours ago               strange_thompson
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container stop b7512db1d0d7
+b7512db1d0d7
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container rm b7512db1d0d7
+b7512db1d0d7
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container ls -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED          STATUS                      PORTS     NAMES
+47e9f8d708f3   postgres:13   "docker-entrypoint.s…"   6 minutes ago    Created                               pg-database     
+3698af9c993c   python:3.9    "python3"                42 minutes ago   Exited (0) 32 minutes ago             wonderful_tu    
+f1166c5d023c   ubuntu        "bash"                   13 hours ago     Exited (0) 13 hours ago               jolly_shockley  
+4a51733e65b4   python:3.9    "bash"                   14 hours ago     Exited (0) 14 hours ago               strange_thompson
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$   docker run -it \
+>   -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+>   -e PGADMIN_DEFAULT_PASSWORD="root" \
+>   -p 8080:80 \
+>   --network=pg-network \
+>   --name pgadmin \
+>   dpage/pgadmin4
+Unable to find image 'dpage/pgadmin4:latest' locally
+latest: Pulling from dpage/pgadmin4
+40e059520d19: Pull complete
+66f556fd213d: Pull complete
+2a2fb8b45a9d: Pull complete
+f4d0db21f3c0: Pull complete
+cf30ad4c6765: Pull complete
+be608843cead: Pull complete
+49f606977dc4: Pull complete
+1be4c4548360: Pull complete
+6b9ca5a72134: Pull complete
+08dbb28465b4: Pull complete
+4350d02fd04a: Pull complete
+1ee0bcd0d0ab: Pull complete
+9135887d8024: Pull complete
+6d23acfae6ef: Pull complete
+Digest: sha256:f820e5579857a7210599f998c818777a2f6f39172b50fbeb2faaa1a70413e9ac
+Status: Downloaded newer image for dpage/pgadmin4:latest
+docker: Error response from daemon: network pg-network not found.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker container ls -a
+CONTAINER ID   IMAGE            COMMAND                  CREATED          STATUS                      PORTS     NAMES
+d7ea31a82109   dpage/pgadmin4   "/entrypoint.sh"         5 minutes ago    Created                               pgadmin
+47e9f8d708f3   postgres:13      "docker-entrypoint.s…"   24 minutes ago   Created                               pg-database
+3698af9c993c   python:3.9       "python3"                59 minutes ago   Exited (0) 49 minutes ago             wonderful_tu
+f1166c5d023c   ubuntu           "bash"                   14 hours ago     Exited (0) 14 hours ago               jolly_shockley
+4a51733e65b4   python:3.9       "bash"                   15 hours ago     Exited (0) 15 hours ago               strange_thompson
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$   docker run -it \
+>   --network=pg-network \
+>  --dbname=pg-database \
+>   --name pgadmin \
+>   dpage/pgadmin4
+unknown flag: --dbname
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$   docker run -it \
+>   -e POSTGRES_USER="root" \
+>   -e POSTGRES_PASSWORD="root" \
+>   -e POSTGRES_Drk=pg-network \
+>   --name pg-database \
+>   postgres:B="ny_taxi" \
+>   -v $(pwd)/ny_taxi_postges_data:/var/lib/postgresql/data \
+>   -p 5432:5432 \
+>   --netwo13
+docker: invalid reference format.
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ docker run -it   -e POSTGRES_USER="root"   -e POSTGRES_PASSWORD="root"   -e POSTGRES_DB="ny_taxi"   -v C:/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKta   -p 5432:5432   --network=pg-network   -ER_SQL/ny_taxi_postges_data:/var/lib/postgresql/da-name pg-database   postgres:13
+unknown shorthand flag: 'E' in -ER_SQL/ny_taxi_postges_data:C:/Program Files/Git/var/lib/postgresql/da-name
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$  docker run -it   -e POSTGRES_USER="root"   -e POSTGRES_PASSWORD="root"   -e POSTGRES_DB="ny_taxi"   -v $(pwd)/ny_taxi_postges_data:/var/lib/postgresql/data   -p 5432:5432   --network=pg-network   --name pg-database   postgres:13
+docker: Error response from daemon: Conflict. The container name "/pg-database" is already in use by container "47e9f8d708f38d12e0075c7a3ca2513595b4061bfe62bc638f892ce60465110f". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week1BasicSetup/2_DOCKER_SQL (main)
+$ cd c:git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker-compose build
+postgres uses an image, skipping
+redis uses an image, skipping
+airflow-init uses an image, skipping
+airflow-triggerer uses an image, skipping
+airflow-worker uses an image, skipping
+airflow-scheduler uses an image, skipping
+airflow-webserver uses an image, skipping
+flower uses an image, skipping
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker build .
+[+] Building 0.1s (2/2) FINISHED
+ => [internal] load build definition from Dockerfile                                                                                                                                                                                                                                          0.1s 
+ => => transferring dockerfile: 2B                                                                                                                                                                                                                                                            0.0s 
+ => [internal] load .dockerignore                                                                                                                                                                                                                                                             0.0s 
+ => => transferring context: 2B                                                                                                                                                                                                                                                               0.0s 
+failed to solve with frontend dockerfile.v0: failed to read dockerfile: open /var/lib/docker/tmp/buildkit-mount390541097/Dockerfile: no such file or directory
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ ls
+dags/  docker-compose.yaml  logs/  plugins/
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$ docker-compose up airflow-init
+Creating network "airflow_default" with the default driver
+Creating volume "airflow_postgres-db-volume" with default driver
+Pulling redis (redis:latest)...
+latest: Pulling from library/redis
+c229119241af: Already exists
+bed41eb8190a: Pull complete
+5e59eaa723f1: Pull complete
+fd5ad7669819: Pull complete
+566c064eef6e: Pull complete
+20c7cfac25de: Pull complete
+Digest: sha256:69a3ab2516b560690e37197b71bc61ba245aafe4525ebdece1d8a0bc5669e3e2
+Status: Downloaded newer image for redis:latest
+Pulling airflow-init (apache/airflow:2.2.5)...
+2.2.5: Pulling from apache/airflow
+f003217c5aae: Pull complete
+89f192ed0478: Pull complete
+dc640924cbbc: Pull complete
+f798b9ab4c93: Pull complete
+c14f8942a625: Pull complete
+9d8f33eeec18: Pull complete
+072118450e77: Pull complete
+4ffb9451dfc0: Pull complete
+fa27371bb4cf: Pull complete
+48168813a196: Pull complete
+7d241e22c3ed: Pull complete
+444e4eb0b2db: Pull complete
+e33c72a17a40: Pull complete
+a3ed95caeb02: Pull complete
+Digest: sha256:e14b17b593102bdc674497e5b790272d6c2f17fb04554d630104cdcff990faa1
+Status: Downloaded newer image for apache/airflow:2.2.5
+Creating airflow_redis_1    ... done
+Creating airflow_postgres_1 ... done
+Creating airflow_airflow-init_1 ... done
+Attaching to airflow_airflow-init_1
+airflow-init_1       | The container is run as root user. For security, consider using a regular user account.
+airflow-init_1       | 
+airflow-init_1       | [2022-04-11 12:33:53,133] {cli_action_loggers.py:105} WARNING - Failed to log action with (psycopg2.errors.UndefinedTable) relation "log" does not exist
+airflow-init_1       | LINE 1: INSERT INTO log (dttm, dag_id, task_id, event, execution_dat...
+airflow-init_1       |                     ^
+airflow-init_1       |
+airflow-init_1       | [SQL: INSERT INTO log (dttm, dag_id, task_id, event, execution_date, owner, extra) VALUES (%(dttm)s, %(dag_id)s, %(task_id)s, %(event)s, %(execution_date)s, %(owner)s, %(extra)s) RETURNING log.id]
+airflow-init_1       | [parameters: {'dttm': datetime.datetime(2022, 4, 11, 12, 33, 53, 117785, tzinfo=Timezone('UTC')), 'dag_id': None, 'task_id': None, 'event': 'cli_upgradedb', 'execution_date': None, 'owner': 'root', 'extra': '{"host_name": "d3b1235cbd40", "full_command": "[\'/home/airflow/.local/bin/airflow\', \'db\', \'upgrade\']"}'}]
+airflow-init_1       | (Background on this error at: http://sqlalche.me/e/13/f405)
+airflow-init_1       | DB: postgresql+psycopg2://airflow:***@postgres/airflow
+airflow-init_1       | [2022-04-11 12:33:53,450] {db.py:919} INFO - Creating tables
+airflow-init_1       | INFO  [alembic.runtime.migration] Context impl PostgresqlImpl.
+airflow-init_1       | INFO  [alembic.runtime.migration] Will assume transactional DDL.
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade  -> e3a246e0dc1, current schema
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade e3a246e0dc1 -> 1507a7289a2f, create is_encrypted
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 1507a7289a2f -> 13eb55f81627, maintain history for compatibility with earlier migrations
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 13eb55f81627 -> 338e90f54d61, More logging into task_instance
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 338e90f54d61 -> 52d714495f0, job_id indices
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 52d714495f0 -> 502898887f84, Adding extra to Log
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 502898887f84 -> 1b38cef5b76e, add dagrun
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 1b38cef5b76e -> 2e541a1dcfed, task_duration
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 2e541a1dcfed -> 40e67319e3a9, dagrun_config
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 40e67319e3a9 -> 561833c1c74b, add password column to user
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 561833c1c74b -> 4446e08588, dagrun start end
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 4446e08588 -> bbc73705a13e, Add notification_sent column to sla_miss
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade bbc73705a13e -> bba5a7cfc896, Add a column to track the encryption state of the 'Extra' field in connection
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade bba5a7cfc896 -> 1968acfc09e3, add is_encrypted column to variable table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 1968acfc09e3 -> 2e82aab8ef20, rename user table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 2e82aab8ef20 -> 211e584da130, add TI state index
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 211e584da130 -> 64de9cddf6c9, add task fails journal table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 64de9cddf6c9 -> f2ca10b85618, add dag_stats table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade f2ca10b85618 -> 4addfa1236f1, Add fractional seconds to mysql tables
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 4addfa1236f1 -> 8504051e801b, xcom dag task indices
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 8504051e801b -> 5e7d17757c7a, add pid field to TaskInstance
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 5e7d17757c7a -> 127d2bf2dfa7, Add dag_id/state index on dag_run table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 127d2bf2dfa7 -> cc1e65623dc7, add max tries column to task instance
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade cc1e65623dc7 -> bdaa763e6c56, Make xcom value column a large binary
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade bdaa763e6c56 -> 947454bf1dff, add ti job_id index
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 947454bf1dff -> d2ae31099d61, Increase text size for MySQL (not relevant for other DBs' text types)
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade d2ae31099d61 -> 0e2a74e0fc9f, Add time zone awareness
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade d2ae31099d61 -> 33ae817a1ff4, kubernetes_resource_checkpointing
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 33ae817a1ff4 -> 27c6a30d7c24, kubernetes_resource_checkpointing
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 27c6a30d7c24 -> 86770d1215c0, add kubernetes scheduler uniqueness
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 86770d1215c0, 0e2a74e0fc9f -> 05f30312d566, merge heads
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 05f30312d566 -> f23433877c24, fix mysql not null constraint
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade f23433877c24 -> 856955da8476, fix sqlite foreign key
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 856955da8476 -> 9635ae0956e7, index-taskfail
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 9635ae0956e7 -> dd25f486b8ea, add idx_log_dag
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade dd25f486b8ea -> bf00311e1990, add index to taskinstance
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 9635ae0956e7 -> 0a2a5b66e19d, add task_reschedule table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 0a2a5b66e19d, bf00311e1990 -> 03bc53e68815, merge_heads_2
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 03bc53e68815 -> 41f5f12752f8, add superuser field
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 41f5f12752f8 -> c8ffec048a3b, add fields to dag
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade c8ffec048a3b -> dd4ecb8fbee3, Add schedule interval to dag
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade dd4ecb8fbee3 -> 939bb1e647c8, task reschedule fk on cascade delete
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 939bb1e647c8 -> 6e96a59344a4, Make TaskInstance.pool not nullable
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 6e96a59344a4 -> d38e04c12aa2, add serialized_dag table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade d38e04c12aa2 -> b3b105409875, add root_dag_id to DAG
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 6e96a59344a4 -> 74effc47d867, change datetime to datetime2(6) on MSSQL tables
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 939bb1e647c8 -> 004c1210f153, increase queue name size limit
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade c8ffec048a3b -> a56c9515abdc, Remove dag_stat table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade a56c9515abdc, 004c1210f153, 74effc47d867, b3b105409875 -> 08364691d074, Merge the four heads back together
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 08364691d074 -> fe461863935f, increase_length_for_connection_password
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade fe461863935f -> 7939bcff74ba, Add DagTags table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 7939bcff74ba -> a4c2fd67d16b, add pool_slots field to task_instance
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade a4c2fd67d16b -> 852ae6c715af, Add RenderedTaskInstanceFields table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 852ae6c715af -> 952da73b5eff, add dag_code table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 952da73b5eff -> a66efa278eea, Add Precision to execution_date in RenderedTaskInstanceFields table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade a66efa278eea -> da3f683c3a5a, Add dag_hash Column to serialized_dag table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade da3f683c3a5a -> 92c57b58940d, Create FAB Tables
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 92c57b58940d -> 03afc6b6f902, Increase length of FAB ab_view_menu.name column
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 03afc6b6f902 -> cf5dc11e79ad, drop_user_and_chart
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade cf5dc11e79ad -> bbf4a7ad0465, Remove id column from xcom
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade bbf4a7ad0465 -> b25a55525161, Increase length of pool name
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade b25a55525161 -> 3c20cacc0044, Add DagRun run_type
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 3c20cacc0044 -> 8f966b9c467a, Set conn_type as non-nullable
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 8f966b9c467a -> 8d48763f6d53, add unique constraint to conn_id
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 8d48763f6d53 -> e38be357a868, Add sensor_instance table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade e38be357a868 -> b247b1e3d1ed, Add queued by Job ID to TI
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade b247b1e3d1ed -> e1a11ece99cc, Add external executor ID to TI
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade e1a11ece99cc -> bef4f3d11e8b, Drop KubeResourceVersion and KubeWorkerId
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade bef4f3d11e8b -> 98271e7606e2, Add scheduling_decision to DagRun and DAG
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 98271e7606e2 -> 52d53670a240, fix_mssql_exec_date_rendered_task_instance_fields_for_MSSQL
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 52d53670a240 -> 364159666cbd, Add creating_job_id to DagRun table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 364159666cbd -> 45ba3f1493b9, add-k8s-yaml-to-rendered-templates
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 45ba3f1493b9 -> 849da589634d, Prefix DAG permissions.
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 849da589634d -> 2c6edca13270, Resource based permissions.
+airflow-init_1       | [2022-04-11 12:34:01,172] {manager.py:245} INFO - Inserted Role: Admin
+airflow-init_1       | [2022-04-11 12:34:01,179] {manager.py:245} INFO - Inserted Role: Public
+airflow-init_1       | [2022-04-11 12:34:01,191] {manager.py:779} WARNING - No user yet created, use flask fab command to do it.
+airflow-init_1       | [2022-04-11 12:34:02,548] {manager.py:496} INFO - Created Permission View: can delete on Connections
+airflow-init_1       | [2022-04-11 12:34:02,567] {manager.py:496} INFO - Created Permission View: can read on Connections
+airflow-init_1       | [2022-04-11 12:34:02,596] {manager.py:496} INFO - Created Permission View: can edit on Connections
+airflow-init_1       | [2022-04-11 12:34:02,626] {manager.py:496} INFO - Created Permission View: can create on Connections
+airflow-init_1       | [2022-04-11 12:34:02,703] {manager.py:496} INFO - Created Permission View: can read on DAGs
+airflow-init_1       | [2022-04-11 12:34:02,754] {manager.py:496} INFO - Created Permission View: can edit on DAGs
+airflow-init_1       | [2022-04-11 12:34:02,780] {manager.py:496} INFO - Created Permission View: can delete on DAGs
+airflow-init_1       | [2022-04-11 12:34:02,863] {manager.py:496} INFO - Created Permission View: can read on DAG Runs
+airflow-init_1       | [2022-04-11 12:34:02,887] {manager.py:496} INFO - Created Permission View: can read on Task Instances
+airflow-init_1       | [2022-04-11 12:34:02,964] {manager.py:496} INFO - Created Permission View: can edit on Task Instances
+airflow-init_1       | [2022-04-11 12:34:03,049] {manager.py:496} INFO - Created Permission View: can delete on DAG Runs
+airflow-init_1       | [2022-04-11 12:34:03,140] {manager.py:496} INFO - Created Permission View: can create on DAG Runs
+airflow-init_1       | [2022-04-11 12:34:03,165] {manager.py:496} INFO - Created Permission View: can edit on DAG Runs
+airflow-init_1       | [2022-04-11 12:34:03,216] {manager.py:496} INFO - Created Permission View: can read on Audit Logs
+airflow-init_1       | [2022-04-11 12:34:03,267] {manager.py:496} INFO - Created Permission View: can read on ImportError
+airflow-init_1       | [2022-04-11 12:34:03,312] {manager.py:496} INFO - Created Permission View: can delete on Pools
+airflow-init_1       | [2022-04-11 12:34:03,330] {manager.py:496} INFO - Created Permission View: can read on Pools
+airflow-init_1       | [2022-04-11 12:34:03,365] {manager.py:496} INFO - Created Permission View: can edit on Pools
+airflow-init_1       | [2022-04-11 12:34:03,396] {manager.py:496} INFO - Created Permission View: can create on Pools
+airflow-init_1       | [2022-04-11 12:34:03,447] {manager.py:496} INFO - Created Permission View: can read on Providers
+airflow-init_1       | [2022-04-11 12:34:03,506] {manager.py:496} INFO - Created Permission View: can delete on Variables
+airflow-init_1       | [2022-04-11 12:34:03,530] {manager.py:496} INFO - Created Permission View: can read on Variables
+airflow-init_1       | [2022-04-11 12:34:03,564] {manager.py:496} INFO - Created Permission View: can edit on Variables
+airflow-init_1       | [2022-04-11 12:34:03,587] {manager.py:496} INFO - Created Permission View: can create on Variables
+airflow-init_1       | [2022-04-11 12:34:03,651] {manager.py:496} INFO - Created Permission View: can read on XComs
+airflow-init_1       | [2022-04-11 12:34:03,797] {manager.py:496} INFO - Created Permission View: can read on DAG Code
+airflow-init_1       | [2022-04-11 12:34:03,828] {manager.py:496} INFO - Created Permission View: can read on Configurations
+airflow-init_1       | [2022-04-11 12:34:03,868] {manager.py:496} INFO - Created Permission View: can read on Plugins
+airflow-init_1       | [2022-04-11 12:34:03,895] {manager.py:496} INFO - Created Permission View: can read on Roles
+airflow-init_1       | [2022-04-11 12:34:03,924] {manager.py:496} INFO - Created Permission View: can read on Permissions
+airflow-init_1       | [2022-04-11 12:34:03,947] {manager.py:496} INFO - Created Permission View: can delete on Roles
+airflow-init_1       | [2022-04-11 12:34:03,972] {manager.py:496} INFO - Created Permission View: can edit on Roles
+airflow-init_1       | [2022-04-11 12:34:03,996] {manager.py:496} INFO - Created Permission View: can create on Roles
+airflow-init_1       | [2022-04-11 12:34:04,061] {manager.py:496} INFO - Created Permission View: can read on Users
+airflow-init_1       | [2022-04-11 12:34:04,089] {manager.py:496} INFO - Created Permission View: can create on Users
+airflow-init_1       | [2022-04-11 12:34:04,108] {manager.py:496} INFO - Created Permission View: can edit on Users
+airflow-init_1       | [2022-04-11 12:34:04,128] {manager.py:496} INFO - Created Permission View: can delete on Users
+airflow-init_1       | [2022-04-11 12:34:04,242] {manager.py:245} INFO - Inserted Role: Viewer
+airflow-init_1       | [2022-04-11 12:34:04,258] {manager.py:558} INFO - Added Permission can read on Audit Logs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,265] {manager.py:558} INFO - Added Permission can read on DAGs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,285] {manager.py:496} INFO - Created Permission View: can read on DAG Dependencies
+airflow-init_1       | [2022-04-11 12:34:04,291] {manager.py:558} INFO - Added Permission can read on DAG Dependencies to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,302] {manager.py:558} INFO - Added Permission can read on DAG Code to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,308] {manager.py:558} INFO - Added Permission can read on DAG Runs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,317] {manager.py:558} INFO - Added Permission can read on ImportError to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,334] {manager.py:496} INFO - Created Permission View: can read on Jobs
+airflow-init_1       | [2022-04-11 12:34:04,343] {manager.py:558} INFO - Added Permission can read on Jobs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,365] {manager.py:496} INFO - Created Permission View: can read on My Password
+airflow-init_1       | [2022-04-11 12:34:04,376] {manager.py:558} INFO - Added Permission can read on My Password to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,398] {manager.py:496} INFO - Created Permission View: can edit on My Password
+airflow-init_1       | [2022-04-11 12:34:04,411] {manager.py:558} INFO - Added Permission can edit on My Password to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,433] {manager.py:496} INFO - Created Permission View: can read on My Profile
+airflow-init_1       | [2022-04-11 12:34:04,444] {manager.py:558} INFO - Added Permission can read on My Profile to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,465] {manager.py:496} INFO - Created Permission View: can edit on My Profile
+airflow-init_1       | [2022-04-11 12:34:04,479] {manager.py:558} INFO - Added Permission can edit on My Profile to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,496] {manager.py:558} INFO - Added Permission can read on Plugins to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,523] {manager.py:496} INFO - Created Permission View: can read on SLA Misses
+airflow-init_1       | [2022-04-11 12:34:04,539] {manager.py:558} INFO - Added Permission can read on SLA Misses to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,548] {manager.py:558} INFO - Added Permission can read on Task Instances to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,578] {manager.py:496} INFO - Created Permission View: can read on Task Logs
+airflow-init_1       | [2022-04-11 12:34:04,589] {manager.py:558} INFO - Added Permission can read on Task Logs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,597] {manager.py:558} INFO - Added Permission can read on XComs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,621] {manager.py:496} INFO - Created Permission View: can read on Website
+airflow-init_1       | [2022-04-11 12:34:04,633] {manager.py:558} INFO - Added Permission can read on Website to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,730] {manager.py:496} INFO - Created Permission View: menu access on Browse
+airflow-init_1       | [2022-04-11 12:34:04,764] {manager.py:558} INFO - Added Permission menu access on Browse to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,792] {manager.py:496} INFO - Created Permission View: menu access on DAG Dependencies
+airflow-init_1       | [2022-04-11 12:34:04,798] {manager.py:558} INFO - Added Permission menu access on DAG Dependencies to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,821] {manager.py:496} INFO - Created Permission View: menu access on DAG Runs
+airflow-init_1       | [2022-04-11 12:34:04,828] {manager.py:558} INFO - Added Permission menu access on DAG Runs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,848] {manager.py:496} INFO - Created Permission View: menu access on Documentation
+airflow-init_1       | [2022-04-11 12:34:04,862] {manager.py:558} INFO - Added Permission menu access on Documentation to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,895] {manager.py:496} INFO - Created Permission View: menu access on Docs
+airflow-init_1       | [2022-04-11 12:34:04,910] {manager.py:558} INFO - Added Permission menu access on Docs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,933] {manager.py:496} INFO - Created Permission View: menu access on Jobs
+airflow-init_1       | [2022-04-11 12:34:04,949] {manager.py:558} INFO - Added Permission menu access on Jobs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:04,977] {manager.py:496} INFO - Created Permission View: menu access on Audit Logs
+airflow-init_1       | [2022-04-11 12:34:04,986] {manager.py:558} INFO - Added Permission menu access on Audit Logs to role Viewer
+airflow-init_1       | [2022-04-11 12:34:05,011] {manager.py:496} INFO - Created Permission View: menu access on Plugins
+airflow-init_1       | [2022-04-11 12:34:05,017] {manager.py:558} INFO - Added Permission menu access on Plugins to role Viewer
+airflow-init_1       | [2022-04-11 12:34:05,044] {manager.py:496} INFO - Created Permission View: menu access on SLA Misses
+airflow-init_1       | [2022-04-11 12:34:05,052] {manager.py:558} INFO - Added Permission menu access on SLA Misses to role Viewer
+airflow-init_1       | [2022-04-11 12:34:05,083] {manager.py:496} INFO - Created Permission View: menu access on Task Instances
+airflow-init_1       | [2022-04-11 12:34:05,099] {manager.py:558} INFO - Added Permission menu access on Task Instances to role Viewer
+airflow-init_1       | [2022-04-11 12:34:05,112] {manager.py:245} INFO - Inserted Role: User
+airflow-init_1       | [2022-04-11 12:34:05,128] {manager.py:558} INFO - Added Permission can read on Audit Logs to role User
+airflow-init_1       | [2022-04-11 12:34:05,143] {manager.py:558} INFO - Added Permission can read on DAGs to role User
+airflow-init_1       | [2022-04-11 12:34:05,172] {manager.py:558} INFO - Added Permission can read on DAG Dependencies to role User
+airflow-init_1       | [2022-04-11 12:34:05,186] {manager.py:558} INFO - Added Permission can read on DAG Code to role User
+airflow-init_1       | [2022-04-11 12:34:05,200] {manager.py:558} INFO - Added Permission can read on DAG Runs to role User
+airflow-init_1       | [2022-04-11 12:34:05,214] {manager.py:558} INFO - Added Permission can read on ImportError to role User
+airflow-init_1       | [2022-04-11 12:34:05,256] {manager.py:558} INFO - Added Permission can read on Jobs to role User
+airflow-init_1       | [2022-04-11 12:34:05,296] {manager.py:558} INFO - Added Permission can read on My Password to role User
+airflow-init_1       | [2022-04-11 12:34:05,321] {manager.py:558} INFO - Added Permission can edit on My Password to role User
+airflow-init_1       | [2022-04-11 12:34:05,362] {manager.py:558} INFO - Added Permission can read on My Profile to role User
+airflow-init_1       | [2022-04-11 12:34:05,383] {manager.py:558} INFO - Added Permission can edit on My Profile to role User
+airflow-init_1       | [2022-04-11 12:34:05,398] {manager.py:558} INFO - Added Permission can read on Plugins to role User
+airflow-init_1       | [2022-04-11 12:34:05,439] {manager.py:558} INFO - Added Permission can read on SLA Misses to role User
+airflow-init_1       | [2022-04-11 12:34:05,447] {manager.py:558} INFO - Added Permission can read on Task Instances to role User
+airflow-init_1       | [2022-04-11 12:34:05,510] {manager.py:558} INFO - Added Permission can read on Task Logs to role User
+airflow-init_1       | [2022-04-11 12:34:05,536] {manager.py:558} INFO - Added Permission can read on XComs to role User
+airflow-init_1       | [2022-04-11 12:34:05,581] {manager.py:558} INFO - Added Permission can read on Website to role User
+airflow-init_1       | [2022-04-11 12:34:05,611] {manager.py:558} INFO - Added Permission menu access on Browse to role User
+airflow-init_1       | [2022-04-11 12:34:05,642] {manager.py:558} INFO - Added Permission menu access on DAG Dependencies to role User
+airflow-init_1       | [2022-04-11 12:34:05,664] {manager.py:558} INFO - Added Permission menu access on DAG Runs to role User
+airflow-init_1       | [2022-04-11 12:34:05,699] {manager.py:558} INFO - Added Permission menu access on Documentation to role User
+airflow-init_1       | [2022-04-11 12:34:05,732] {manager.py:558} INFO - Added Permission menu access on Docs to role User
+airflow-init_1       | [2022-04-11 12:34:05,763] {manager.py:558} INFO - Added Permission menu access on Jobs to role User
+airflow-init_1       | [2022-04-11 12:34:05,796] {manager.py:558} INFO - Added Permission menu access on Audit Logs to role User
+airflow-init_1       | [2022-04-11 12:34:05,820] {manager.py:558} INFO - Added Permission menu access on Plugins to role User
+airflow-init_1       | [2022-04-11 12:34:05,848] {manager.py:558} INFO - Added Permission menu access on SLA Misses to role User
+airflow-init_1       | [2022-04-11 12:34:05,885] {manager.py:558} INFO - Added Permission menu access on Task Instances to role User
+airflow-init_1       | [2022-04-11 12:34:05,897] {manager.py:558} INFO - Added Permission can edit on DAGs to role User
+airflow-init_1       | [2022-04-11 12:34:05,913] {manager.py:558} INFO - Added Permission can delete on DAGs to role User
+airflow-init_1       | [2022-04-11 12:34:05,935] {manager.py:496} INFO - Created Permission View: can create on Task Instances
+airflow-init_1       | [2022-04-11 12:34:05,947] {manager.py:558} INFO - Added Permission can create on Task Instances to role User
+airflow-init_1       | [2022-04-11 12:34:05,961] {manager.py:558} INFO - Added Permission can edit on Task Instances to role User
+airflow-init_1       | [2022-04-11 12:34:05,980] {manager.py:496} INFO - Created Permission View: can delete on Task Instances
+airflow-init_1       | [2022-04-11 12:34:05,997] {manager.py:558} INFO - Added Permission can delete on Task Instances to role User
+airflow-init_1       | [2022-04-11 12:34:06,012] {manager.py:558} INFO - Added Permission can create on DAG Runs to role User
+airflow-init_1       | [2022-04-11 12:34:06,023] {manager.py:558} INFO - Added Permission can edit on DAG Runs to role User
+airflow-init_1       | [2022-04-11 12:34:06,030] {manager.py:558} INFO - Added Permission can delete on DAG Runs to role User
+airflow-init_1       | [2022-04-11 12:34:06,046] {manager.py:245} INFO - Inserted Role: Op
+airflow-init_1       | [2022-04-11 12:34:06,061] {manager.py:558} INFO - Added Permission can read on Audit Logs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,071] {manager.py:558} INFO - Added Permission can read on DAGs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,104] {manager.py:558} INFO - Added Permission can read on DAG Dependencies to role Op
+airflow-init_1       | [2022-04-11 12:34:06,115] {manager.py:558} INFO - Added Permission can read on DAG Code to role Op
+airflow-init_1       | [2022-04-11 12:34:06,127] {manager.py:558} INFO - Added Permission can read on DAG Runs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,138] {manager.py:558} INFO - Added Permission can read on ImportError to role Op
+airflow-init_1       | [2022-04-11 12:34:06,162] {manager.py:558} INFO - Added Permission can read on Jobs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,192] {manager.py:558} INFO - Added Permission can read on My Password to role Op
+airflow-init_1       | [2022-04-11 12:34:06,214] {manager.py:558} INFO - Added Permission can edit on My Password to role Op
+airflow-init_1       | [2022-04-11 12:34:06,242] {manager.py:558} INFO - Added Permission can read on My Profile to role Op
+airflow-init_1       | [2022-04-11 12:34:06,272] {manager.py:558} INFO - Added Permission can edit on My Profile to role Op
+airflow-init_1       | [2022-04-11 12:34:06,280] {manager.py:558} INFO - Added Permission can read on Plugins to role Op
+airflow-init_1       | [2022-04-11 12:34:06,311] {manager.py:558} INFO - Added Permission can read on SLA Misses to role Op
+airflow-init_1       | [2022-04-11 12:34:06,322] {manager.py:558} INFO - Added Permission can read on Task Instances to role Op
+airflow-init_1       | [2022-04-11 12:34:06,347] {manager.py:558} INFO - Added Permission can read on Task Logs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,361] {manager.py:558} INFO - Added Permission can read on XComs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,382] {manager.py:558} INFO - Added Permission can read on Website to role Op
+airflow-init_1       | [2022-04-11 12:34:06,411] {manager.py:558} INFO - Added Permission menu access on Browse to role Op
+airflow-init_1       | [2022-04-11 12:34:06,424] {manager.py:558} INFO - Added Permission menu access on DAG Dependencies to role Op
+airflow-init_1       | [2022-04-11 12:34:06,436] {manager.py:558} INFO - Added Permission menu access on DAG Runs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,453] {manager.py:558} INFO - Added Permission menu access on Documentation to role Op
+airflow-init_1       | [2022-04-11 12:34:06,478] {manager.py:558} INFO - Added Permission menu access on Docs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,493] {manager.py:558} INFO - Added Permission menu access on Jobs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,508] {manager.py:558} INFO - Added Permission menu access on Audit Logs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,522] {manager.py:558} INFO - Added Permission menu access on Plugins to role Op
+airflow-init_1       | [2022-04-11 12:34:06,536] {manager.py:558} INFO - Added Permission menu access on SLA Misses to role Op
+airflow-init_1       | [2022-04-11 12:34:06,556] {manager.py:558} INFO - Added Permission menu access on Task Instances to role Op
+airflow-init_1       | [2022-04-11 12:34:06,563] {manager.py:558} INFO - Added Permission can edit on DAGs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,575] {manager.py:558} INFO - Added Permission can delete on DAGs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,594] {manager.py:558} INFO - Added Permission can create on Task Instances to role Op
+airflow-init_1       | [2022-04-11 12:34:06,608] {manager.py:558} INFO - Added Permission can edit on Task Instances to role Op
+airflow-init_1       | [2022-04-11 12:34:06,632] {manager.py:558} INFO - Added Permission can delete on Task Instances to role Op
+airflow-init_1       | [2022-04-11 12:34:06,647] {manager.py:558} INFO - Added Permission can create on DAG Runs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,662] {manager.py:558} INFO - Added Permission can edit on DAG Runs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,675] {manager.py:558} INFO - Added Permission can delete on DAG Runs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,688] {manager.py:558} INFO - Added Permission can read on Configurations to role Op
+airflow-init_1       | [2022-04-11 12:34:06,726] {manager.py:496} INFO - Created Permission View: menu access on Admin
+airflow-init_1       | [2022-04-11 12:34:06,740] {manager.py:558} INFO - Added Permission menu access on Admin to role Op
+airflow-init_1       | [2022-04-11 12:34:06,761] {manager.py:496} INFO - Created Permission View: menu access on Configurations
+airflow-init_1       | [2022-04-11 12:34:06,776] {manager.py:558} INFO - Added Permission menu access on Configurations to role Op
+airflow-init_1       | [2022-04-11 12:34:06,796] {manager.py:496} INFO - Created Permission View: menu access on Connections
+airflow-init_1       | [2022-04-11 12:34:06,806] {manager.py:558} INFO - Added Permission menu access on Connections to role Op
+airflow-init_1       | [2022-04-11 12:34:06,826] {manager.py:496} INFO - Created Permission View: menu access on Pools
+airflow-init_1       | [2022-04-11 12:34:06,831] {manager.py:558} INFO - Added Permission menu access on Pools to role Op
+airflow-init_1       | [2022-04-11 12:34:06,851] {manager.py:496} INFO - Created Permission View: menu access on Variables
+airflow-init_1       | [2022-04-11 12:34:06,863] {manager.py:558} INFO - Added Permission menu access on Variables to role Op
+airflow-init_1       | [2022-04-11 12:34:06,881] {manager.py:496} INFO - Created Permission View: menu access on XComs
+airflow-init_1       | [2022-04-11 12:34:06,895] {manager.py:558} INFO - Added Permission menu access on XComs to role Op
+airflow-init_1       | [2022-04-11 12:34:06,912] {manager.py:558} INFO - Added Permission can create on Connections to role Op
+airflow-init_1       | [2022-04-11 12:34:06,929] {manager.py:558} INFO - Added Permission can read on Connections to role Op
+airflow-init_1       | [2022-04-11 12:34:06,939] {manager.py:558} INFO - Added Permission can edit on Connections to role Op
+airflow-init_1       | [2022-04-11 12:34:06,958] {manager.py:558} INFO - Added Permission can delete on Connections to role Op
+airflow-init_1       | [2022-04-11 12:34:06,965] {manager.py:558} INFO - Added Permission can create on Pools to role Op
+airflow-init_1       | [2022-04-11 12:34:06,982] {manager.py:558} INFO - Added Permission can read on Pools to role Op
+airflow-init_1       | [2022-04-11 12:34:07,001] {manager.py:558} INFO - Added Permission can edit on Pools to role Op
+airflow-init_1       | [2022-04-11 12:34:07,025] {manager.py:558} INFO - Added Permission can delete on Pools to role Op
+airflow-init_1       | [2022-04-11 12:34:07,045] {manager.py:558} INFO - Added Permission can read on Providers to role Op
+airflow-init_1       | [2022-04-11 12:34:07,059] {manager.py:558} INFO - Added Permission can create on Variables to role Op
+airflow-init_1       | [2022-04-11 12:34:07,072] {manager.py:558} INFO - Added Permission can read on Variables to role Op
+airflow-init_1       | [2022-04-11 12:34:07,088] {manager.py:558} INFO - Added Permission can edit on Variables to role Op
+airflow-init_1       | [2022-04-11 12:34:07,099] {manager.py:558} INFO - Added Permission can delete on Variables to role Op
+airflow-init_1       | [2022-04-11 12:34:07,145] {manager.py:496} INFO - Created Permission View: can delete on XComs
+airflow-init_1       | [2022-04-11 12:34:07,165] {manager.py:558} INFO - Added Permission can delete on XComs to role Op
+airflow-init_1       | [2022-04-11 12:34:07,185] {manager.py:558} INFO - Added Permission can read on Audit Logs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,205] {manager.py:558} INFO - Added Permission can read on DAGs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,232] {manager.py:558} INFO - Added Permission can read on DAG Dependencies to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,251] {manager.py:558} INFO - Added Permission can read on DAG Code to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,277] {manager.py:558} INFO - Added Permission can read on DAG Runs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,291] {manager.py:558} INFO - Added Permission can read on ImportError to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,326] {manager.py:558} INFO - Added Permission can read on Jobs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,355] {manager.py:558} INFO - Added Permission can read on My Password to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,379] {manager.py:558} INFO - Added Permission can edit on My Password to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,408] {manager.py:558} INFO - Added Permission can read on My Profile to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,428] {manager.py:558} INFO - Added Permission can edit on My Profile to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,449] {manager.py:558} INFO - Added Permission can read on Plugins to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,493] {manager.py:558} INFO - Added Permission can read on SLA Misses to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,507] {manager.py:558} INFO - Added Permission can read on Task Instances to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,555] {manager.py:558} INFO - Added Permission can read on Task Logs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,563] {manager.py:558} INFO - Added Permission can read on XComs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,616] {manager.py:558} INFO - Added Permission can read on Website to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,657] {manager.py:558} INFO - Added Permission menu access on Browse to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,675] {manager.py:558} INFO - Added Permission menu access on DAG Dependencies to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,699] {manager.py:558} INFO - Added Permission menu access on DAG Runs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,726] {manager.py:558} INFO - Added Permission menu access on Documentation to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,766] {manager.py:558} INFO - Added Permission menu access on Docs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,809] {manager.py:558} INFO - Added Permission menu access on Jobs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,847] {manager.py:558} INFO - Added Permission menu access on Audit Logs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,881] {manager.py:558} INFO - Added Permission menu access on Plugins to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,913] {manager.py:558} INFO - Added Permission menu access on SLA Misses to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,941] {manager.py:558} INFO - Added Permission menu access on Task Instances to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,955] {manager.py:558} INFO - Added Permission can edit on DAGs to role Admin
+airflow-init_1       | [2022-04-11 12:34:07,970] {manager.py:558} INFO - Added Permission can delete on DAGs to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,011] {manager.py:558} INFO - Added Permission can create on Task Instances to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,029] {manager.py:558} INFO - Added Permission can edit on Task Instances to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,074] {manager.py:558} INFO - Added Permission can delete on Task Instances to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,106] {manager.py:558} INFO - Added Permission can create on DAG Runs to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,129] {manager.py:558} INFO - Added Permission can edit on DAG Runs to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,156] {manager.py:558} INFO - Added Permission can delete on DAG Runs to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,166] {manager.py:558} INFO - Added Permission can read on Configurations to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,221] {manager.py:558} INFO - Added Permission menu access on Admin to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,258] {manager.py:558} INFO - Added Permission menu access on Configurations to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,290] {manager.py:558} INFO - Added Permission menu access on Connections to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,329] {manager.py:558} INFO - Added Permission menu access on Pools to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,372] {manager.py:558} INFO - Added Permission menu access on Variables to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,407] {manager.py:558} INFO - Added Permission menu access on XComs to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,414] {manager.py:558} INFO - Added Permission can create on Connections to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,426] {manager.py:558} INFO - Added Permission can read on Connections to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,442] {manager.py:558} INFO - Added Permission can edit on Connections to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,461] {manager.py:558} INFO - Added Permission can delete on Connections to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,476] {manager.py:558} INFO - Added Permission can create on Pools to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,486] {manager.py:558} INFO - Added Permission can read on Pools to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,505] {manager.py:558} INFO - Added Permission can edit on Pools to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,529] {manager.py:558} INFO - Added Permission can delete on Pools to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,545] {manager.py:558} INFO - Added Permission can read on Providers to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,558] {manager.py:558} INFO - Added Permission can create on Variables to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,575] {manager.py:558} INFO - Added Permission can read on Variables to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,588] {manager.py:558} INFO - Added Permission can edit on Variables to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,604] {manager.py:558} INFO - Added Permission can delete on Variables to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,630] {manager.py:558} INFO - Added Permission can delete on XComs to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,663] {manager.py:496} INFO - Created Permission View: can read on Task Reschedules
+airflow-init_1       | [2022-04-11 12:34:08,675] {manager.py:558} INFO - Added Permission can read on Task Reschedules to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,698] {manager.py:496} INFO - Created Permission View: menu access on Task Reschedules
+airflow-init_1       | [2022-04-11 12:34:08,709] {manager.py:558} INFO - Added Permission menu access on Task Reschedules to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,729] {manager.py:496} INFO - Created Permission View: can read on Triggers
+airflow-init_1       | [2022-04-11 12:34:08,745] {manager.py:558} INFO - Added Permission can read on Triggers to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,777] {manager.py:496} INFO - Created Permission View: menu access on Triggers
+airflow-init_1       | [2022-04-11 12:34:08,793] {manager.py:558} INFO - Added Permission menu access on Triggers to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,829] {manager.py:496} INFO - Created Permission View: can read on Passwords
+airflow-init_1       | [2022-04-11 12:34:08,844] {manager.py:558} INFO - Added Permission can read on Passwords to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,886] {manager.py:496} INFO - Created Permission View: can edit on Passwords
+airflow-init_1       | [2022-04-11 12:34:08,898] {manager.py:558} INFO - Added Permission can edit on Passwords to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,916] {manager.py:558} INFO - Added Permission can read on Roles to role Admin
+airflow-init_1       | [2022-04-11 12:34:08,932] {manager.py:558} INFO - Added Permission can edit on Roles to role Admin
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 2c6edca13270 -> 61ec73d9401f, Add description field to connection
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 61ec73d9401f -> 64a7d6477aae, fix description field in connection to be text
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 64a7d6477aae -> e959f08ac86c, Change field in DagCode to MEDIUMTEXT for MySql
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade e959f08ac86c -> 82b7c48c147f, Remove can_read permission on config resource for User and Viewer role
+airflow-init_1       | [2022-04-11 12:34:09,530] {manager.py:779} WARNING - No user yet created, use flask fab command to do it.
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 82b7c48c147f -> 449b4072c2da, Increase size of connection.extra field to handle multiple RSA keys
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 449b4072c2da -> 8646922c8a04, Change default pool_slots to 1
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 8646922c8a04 -> 2e42bb497a22, rename last_scheduler_run column
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 2e42bb497a22 -> 90d1635d7b86, Increase pool name size in TaskInstance
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 90d1635d7b86 -> e165e7455d70, add description field to variable
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade e165e7455d70 -> a13f7613ad25, Resource based permissions for default FAB views.
+airflow-init_1       | [2022-04-11 12:34:11,293] {manager.py:779} WARNING - No user yet created, use flask fab command to do it.
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade a13f7613ad25 -> 97cdd93827b8, Add queued_at column to dagrun table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 97cdd93827b8 -> 092435bf5d12, Add max_active_runs column to dagmodel table
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 092435bf5d12 -> ccde3e26fe78, Add index on state, dag_id for queued dagrun
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade ccde3e26fe78 -> 83f031fd9f1c, improve mssql compatibility
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 83f031fd9f1c -> e9304a3141f0, make xcom pkey columns non-nullable
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade e9304a3141f0 -> 30867afad44a, Rename concurrency column in dag table to max_active_tasks
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 30867afad44a -> 54bebd308c5f, Add trigger table and task info
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 54bebd308c5f -> 142555e44c17, Add data_interval_[start|end] to DagModel and DagRun.
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 142555e44c17 -> 7b2661a43ba3, TaskInstance keyed to DagRun
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade 7b2661a43ba3 -> be2bfac3da23, Add has_import_errors column to DagModel
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade be2bfac3da23 -> c381b21cb7e4, add session table to db
+airflow-init_1       | INFO  [alembic.runtime.migration] Running upgrade c381b21cb7e4 -> 587bdf053233, adding index for dag_id in job
+airflow-init_1       | Upgrades done
+airflow-init_1       | [2022-04-11 12:34:16,497] {manager.py:779} WARNING - No user yet created, use flask fab command to do it.
+airflow-init_1       | [2022-04-11 12:34:16,667] {manager.py:496} INFO - Created Permission View: menu access on List Users
+airflow-init_1       | [2022-04-11 12:34:16,686] {manager.py:558} INFO - Added Permission menu access on List Users to role Admin
+airflow-init_1       | [2022-04-11 12:34:16,727] {manager.py:496} INFO - Created Permission View: menu access on Security
+airflow-init_1       | [2022-04-11 12:34:16,752] {manager.py:558} INFO - Added Permission menu access on Security to role Admin
+airflow-init_1       | [2022-04-11 12:34:16,829] {manager.py:496} INFO - Created Permission View: menu access on List Roles
+airflow-init_1       | [2022-04-11 12:34:16,839] {manager.py:558} INFO - Added Permission menu access on List Roles to role Admin
+airflow-init_1       | [2022-04-11 12:34:16,879] {manager.py:496} INFO - Created Permission View: can read on User Stats Chart
+airflow-init_1       | [2022-04-11 12:34:16,896] {manager.py:558} INFO - Added Permission can read on User Stats Chart to role Admin
+airflow-init_1       | [2022-04-11 12:34:16,932] {manager.py:496} INFO - Created Permission View: menu access on User's Statistics
+airflow-init_1       | [2022-04-11 12:34:16,947] {manager.py:558} INFO - Added Permission menu access on User's Statistics to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,031] {manager.py:496} INFO - Created Permission View: menu access on Base Permissions
+airflow-init_1       | [2022-04-11 12:34:17,044] {manager.py:558} INFO - Added Permission menu access on Base Permissions to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,099] {manager.py:496} INFO - Created Permission View: can read on View Menus
+airflow-init_1       | [2022-04-11 12:34:17,114] {manager.py:558} INFO - Added Permission can read on View Menus to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,162] {manager.py:496} INFO - Created Permission View: menu access on Views/Menus
+airflow-init_1       | [2022-04-11 12:34:17,193] {manager.py:558} INFO - Added Permission menu access on Views/Menus to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,294] {manager.py:496} INFO - Created Permission View: can read on Permission Views
+airflow-init_1       | [2022-04-11 12:34:17,307] {manager.py:558} INFO - Added Permission can read on Permission Views to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,331] {manager.py:496} INFO - Created Permission View: menu access on Permission on Views/Menus
+airflow-init_1       | [2022-04-11 12:34:17,348] {manager.py:558} INFO - Added Permission menu access on Permission on Views/Menus to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,418] {manager.py:496} INFO - Created Permission View: can get on MenuApi
+airflow-init_1       | [2022-04-11 12:34:17,444] {manager.py:558} INFO - Added Permission can get on MenuApi to role Admin
+airflow-init_1       | [2022-04-11 12:34:17,634] {manager.py:512} WARNING - Refused to delete permission view, assoc with role exists DAG Runs.can_create Admin
+airflow-init_1       | [2022-04-11 12:34:18,126] {manager.py:496} INFO - Created Permission View: menu access on Providers
+airflow-init_1       | [2022-04-11 12:34:18,134] {manager.py:558} INFO - Added Permission menu access on Providers to role Admin
+airflow-init_1       | [2022-04-11 12:34:18,253] {manager.py:496} INFO - Created Permission View: can create on XComs
+airflow-init_1       | [2022-04-11 12:34:18,263] {manager.py:558} INFO - Added Permission can create on XComs to role Admin
+airflow-init_1       | [2022-04-11 12:34:20,208] {manager.py:214} INFO - Added user airflow
+airflow-init_1       | User "airflow" created with role "Admin"
+airflow-init_1       | 2.2.5
+airflow_airflow-init_1 exited with code 0
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week2DataIngestion/airflow (main)
+$

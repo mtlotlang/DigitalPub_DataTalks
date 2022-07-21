@@ -1,0 +1,339 @@
+NGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering (main)
+$ git clone https://github.com/Tinitto/compose-postgres-metabase.git
+Cloning into 'compose-postgres-metabase'...
+remote: Enumerating objects: 
+12, done.
+remote: Counting objects: 100% (2/2), done.
+remote: Compressing objects: 
+Engineering (main)
+$
+
+mtlot@DESKTOP-JC4DBPC MINGW64 ~
+$ cd /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose up
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+Creating network "compose-postgres-metabase_default" with the default driver
+Creating volume "compose-postgres-metabase_postgres_volume" with default driver
+Pulling postgres (postgres:)...
+latest: Pulling from library/postgres
+1fe172e4850f: Pull complete
+c2bb685f623f: Pull complete
+3027ff705410: Pull complete
+062371e3461d: Pull complete
+39d54e944de7: Pull complete
+6530357dda9a: Pull complete
+b1d302dc78c6: Pull complete
+f6d91cb1d3c1: Pull complete
+9bbd62b0af28: Pull complete
+3cfdfc8fbef3: Pull complete
+635f8fae1d06: Pull complete
+96b6711661dd: Pull complete
+c08147da7b54: Pull complete
+Digest: sha256:ab0be6280ada8549f45e6662ab4f00b7f601886fcd55c5976565d4636d87c8b2
+Status: Downloaded newer image for postgres:latest
+Pulling metabase (metabase/metabase:)...
+latest: Pulling from metabase/metabase
+cfab2db72209: Pull complete
+fd9344949115: Pull complete
+7aa196df7599: Pull complete
+f177b20d8dc8: Pull complete
+23f877d7025c: Pull complete
+Digest: sha256:3976e37184e3788b1527eee2622d17aa2bd7b087b1f1b22ee6b38247ee580346
+Status: Downloaded newer image for metabase/metabase:latest
+Creating data-engine_postgres ... error
+Creating data-engine_metabase ...
+
+ERROR: for data-engine_postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to aCreating data-engine_metabase ... done
+
+ERROR: for postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+ERROR: Encountered errors while bringing up the project.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose up -d
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+data-engine_metabase is up-to-date
+Starting data-engine_postgres ... error
+
+ERROR: for data-engine_postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+
+ERROR: for postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+ERROR: Encountered errors while bringing up the project.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ sudo docker-compose up -d
+bash: sudo: command not found
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose up -d
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+Starting data-engine_postgres ...
+Starting data-engine_postgres ... error
+
+ERROR: for data-engine_postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+
+ERROR: for postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+ERROR: Encountered errors while bringing up the project.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose build
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+postgres uses an image, skipping
+metabase uses an image, skipping
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose down
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+Stopping data-engine_metabase ... done
+Removing data-engine_metabase ... done
+Removing data-engine_postgres ... done
+Removing network compose-postgres-metabase_default
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose build
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+postgres uses an image, skipping
+metabase uses an image, skipping
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker image ls -a
+REPOSITORY                  TAG       IMAGE ID       CREATED       SIZE
+postgres                    latest    74b0c105737a   2 days ago    376MB
+dbt/bigquery                latest    bbb70c656de2   4 days ago    586MB
+<none>                      <none>    065826eff2cc   6 days ago    2GB
+<none>                      <none>    ecd490fe9142   8 days ago    1.54GB
+airflow_airflow-init        latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-scheduler   latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-triggerer   latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-webserver   latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-worker      latest    404ca6346961   8 days ago    1.53GB
+airflow_flower              latest    404ca6346961   8 days ago    1.53GB
+<none>                      <none>    622439318c70   10 days ago   2GB
+metabase/metabase           latest    8acfa09e0bd2   2 weeks ago   448MB
+python                      3.9       1fa5a5450f62   2 weeks ago   914MB
+python                      latest    4dd615d90c9d   2 weeks ago   919MB
+ubuntu                      latest    825d55fb6340   2 weeks ago   72.8MB
+dpage/pgadmin4              latest    40a516ee7dea   2 weeks ago   341MB
+redis                       latest    bba24acba395   3 weeks ago   113MB
+postgres                    13        01489e150def   3 weeks ago   373MB
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker image rm 8acfa09e0bd2
+Untagged: metabase/metabase:latest
+Untagged: metabase/metabase@sha256:3976e37184e3788b1527eee2622d17aa2bd7b087b1f1b22ee6b38247ee580346
+Deleted: sha256:8acfa09e0bd27b1b660519ce18bdaa0be2f55818aef6e6dc6b59e1a1e4f808da
+Deleted: sha256:6197e47a596485033018116130732873c32ae2687e9ccce2b0be7d88e11a0e42
+Deleted: sha256:eb4fee82f901f194964447ef8fa679b9a5b08e534b0fb31f97b46fade19e2483
+Deleted: sha256:bf617c97fb0a885027314a222d808b4b17cbded54593ffaece801b7e740131dd
+Deleted: sha256:78781f8f2fdc9d3d2cfb86956ed8bcd728ba208adece3ec0f0222d0bd4ad3ba7
+Deleted: sha256:736164617a669ddbb998475f66b3b602e1eae26c535317d212f8f224c161f00d
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker image ls -a
+REPOSITORY                  TAG       IMAGE ID       CREATED       SIZE
+postgres                    latest    74b0c105737a   2 days ago    376MB
+dbt/bigquery                latest    bbb70c656de2   4 days ago    586MB
+<none>                      <none>    065826eff2cc   6 days ago    2GB
+<none>                      <none>    ecd490fe9142   8 days ago    1.54GB
+airflow_airflow-init        latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-scheduler   latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-triggerer   latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-webserver   latest    404ca6346961   8 days ago    1.53GB
+airflow_airflow-worker      latest    404ca6346961   8 days ago    1.53GB
+airflow_flower              latest    404ca6346961   8 days ago    1.53GB
+<none>                      <none>    622439318c70   10 days ago   2GB
+python                      3.9       1fa5a5450f62   2 weeks ago   914MB
+python                      latest    4dd615d90c9d   2 weeks ago   919MB
+ubuntu                      latest    825d55fb6340   2 weeks ago   72.8MB
+dpage/pgadmin4              latest    40a516ee7dea   2 weeks ago   341MB
+redis                       latest    bba24acba395   3 weeks ago   113MB
+postgres                    13        01489e150def   3 weeks ago   373MB
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose down -d
+Stops containers and removes containers, networks, volumes, and images
+created by `up`.
+
+By default, the only things removed are:
+
+- Containers for services defined in the Compose file
+- Networks defined in the `networks` section of the Compose file
+- The default network, if one is used
+
+Networks and volumes defined as `external` are never removed.
+
+Usage: down [options]
+
+Options:
+    --rmi type              Remove images. Type must be one of:
+                              'all': Remove all images used by any service.
+                              'local': Remove only images that don't have a
+                              custom tag set by the `image` field.
+    -v, --volumes           Remove named volumes declared in the `volumes`
+                            section of the Compose file and anonymous volumes
+                            attached to containers.
+    --remove-orphans        Remove containers for services not defined in the
+                            Compose file
+    -t, --timeout TIMEOUT   Specify a shutdown timeout in seconds.
+                            (default: 10)
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker image stop 8acfa09e0bd2
+
+Usage:  docker image COMMAND
+
+Manage images
+
+Commands:
+  build       Build an image from a Dockerfile
+  history     Show the history of an image
+  import      Import the contents from a tarball to create a filesystem image
+  inspect     Display detailed information on one or more images
+  load        Load an image from a tar archive or STDIN
+  ls          List images
+  prune       Remove unused images
+  pull        Pull an image or a repository from a registry
+  push        Push an image or a repository to a registry
+  rm          Remove one or more images
+  save        Save one or more images to a tar archive (streamed to STDOUT by default)
+  tag         Create a tag TARGET_IMAGE that refers to SOURCE_IMAGE
+
+Run 'docker image COMMAND --help' for more information on a command.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker image prune
+WARNING! This will remove all dangling images.
+Are you sure you want to continue? [y/N] y
+Deleted Images:
+deleted: sha256:ecd490fe91422300ef5dac20e48de2b93905b7a0fd7146b0fdf87468991deef6
+deleted: sha256:622439318c704b0eae00cdb4795aba3d9cb50836c4bc5ae01ae570fe50c88ca8
+deleted: sha256:065826eff2ccdd75dad48659919f70bef8119164e2d210b61a64edd5aa0511f2
+
+Total reclaimed space: 0B
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose down -d
+Stops containers and removes containers, networks, volumes, and images
+created by `up`.
+
+By default, the only things removed are:
+
+- Containers for services defined in the Compose file
+- Networks defined in the `networks` section of the Compose file
+- The default network, if one is used
+
+Networks and volumes defined as `external` are never removed.
+
+Usage: down [options]
+
+Options:
+    --rmi type              Remove images. Type must be one of:
+                              'all': Remove all images used by any service.
+                              'local': Remove only images that don't have a
+                              custom tag set by the `image` field.
+    -v, --volumes           Remove named volumes declared in the `volumes`
+                            section of the Compose file and anonymous volumes
+                            attached to containers.
+    --remove-orphans        Remove containers for services not defined in the
+                            Compose file
+    -t, --timeout TIMEOUT   Specify a shutdown timeout in seconds.
+                            (default: 10)
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker-compose up -d
+WARNING: Python-dotenv could not parse statement starting at line 1
+WARNING: Python-dotenv could not parse statement starting at line 2
+WARNING: Python-dotenv could not parse statement starting at line 3
+WARNING: Python-dotenv could not parse statement starting at line 4
+WARNING: Python-dotenv could not parse statement starting at line 5
+WARNING: Python-dotenv could not parse statement starting at line 7
+WARNING: Python-dotenv could not parse statement starting at line 8
+Creating network "compose-postgres-metabase_default" with the default driver
+Pulling metabase (metabase/metabase:)...
+latest: Pulling from metabase/metabase
+cfab2db72209: Pull complete
+fd9344949115: Pull complete
+7aa196df7599: Pull complete
+f177b20d8dc8: Pull complete
+23f877d7025c: Pull complete
+Digest: sha256:3976e37184e3788b1527eee2622d17aa2bd7b087b1f1b22ee6b38247ee580346
+Status: Downloaded newer image for metabase/metabase:latest
+Creating data-engine_postgres ... error
+Creating data-engine_metabase ...
+
+ERROR: for data-engine_postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to aCreating data-engine_metabase ... done
+
+ERROR: for postgres  Cannot start service postgres: Ports are not available: listen tcp 0.0.0.0:54320: bind: An attempt was made to access a socket in a way forbidden by its access permissions.
+ERROR: Encountered errors while bringing up the project.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker ps
+CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS          PORTS                    NAMES
+16e8a1438e9d   postgres:13         "docker-entrypoint.s…"   4 minutes ago    Up 4 minutes    0.0.0.0:5432->5432/tcp   pg-database1
+f75fcd98836c   metabase/metabase   "/app/run_metabase.sh"   20 minutes ago   Up 20 minutes   0.0.0.0:3000->3000/tcp   data-engine_metabase
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$  docker run -it   -e POSTGRES_USER="root"   -e POSTGRES_PASSWORD="root"   -e POSTGRES_DB="ny_taxi"   -v $(pwd)/ny_taxi_postges_data:/var/lib/postgresql/data   -p 5432:5432   --network=pg-network   --name pg-database1   postgres:13
+docker: Error response from daemon: Conflict. The container name "/pg-database1" is already in use by container "16e8a1438e9da17dbea291253fa343f87d4871c54c0eca0c226fd2d753bd4574". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker network ls -a
+unknown shorthand flag: 'a' in -a
+See 'docker network ls --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker network ls
+NETWORK ID     NAME                                DRIVER    SCOPE
+0b294ba10dda   2_docker_sql_default                bridge    local
+83fb6050e0c3   airflow_default                     bridge    local
+2f21ee7a5201   bridge                              bridge    local
+637d67898376   compose-postgres-metabase_default   bridge    local
+825e0078ef9c   host                                host      local
+4945fefa6fda   none                                null      local
+aa767403bf24   pg-network                          bridge    local
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$  docker run -it   -e POSTGRES_USER="root"   -e POSTGRES_PASSWORD="root"   -e POSTGRES_DB="ny_taxi"   -v $(pwd)/ny_taxi_postges_data:/var/lib/postgresql/data   -p 5432:5432   --network=compose-postgres-metabase_default  --name pg-database1   postgres:13
+docker: Error response from daemon: Conflict. The container name "/pg-database1" is already in use by container "16e8a1438e9da17dbea291253fa343f87d4871c54c0eca0c226fd2d753bd4574". You have to remove (or rename) that container to be able to reuse that name.
+See 'docker run --help'.
+
+mtlot@DESKTOP-JC4DBPC MINGW64 /c/git/Data-Engineering/DigitalPub/Data_Engineering_Zoomcamp/Week4AnalyticsEngineering/compose-postgres-metabase (master)
+$ docker image stop 8acfa09e0bd2
