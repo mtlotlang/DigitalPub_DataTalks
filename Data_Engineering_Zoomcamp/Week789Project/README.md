@@ -21,12 +21,12 @@ Store_and_fwd_flag
 Dropoff_longitude   
 Dropoff_latitude   
 Payment_type         
-payment_type_description
-Fare_amount         
-Improvement_surcharge
-Tip_amount        
-Tolls_amount 
-Total_amount 
+payment_type_description   
+Fare_amount             
+Improvement_surcharge   
+Tip_amount            
+Tolls_amount     
+Total_amount     
          
 
 # Problem Statement
